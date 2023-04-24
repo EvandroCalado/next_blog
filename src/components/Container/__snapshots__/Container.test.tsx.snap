@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Container /> > should render 1`] = `
+.c0 {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 2.4rem;
+  font-size: 1.6rem;
+}
+
+<div>
+  <main
+    class="c0"
+  >
+    Container
+  </main>
+</div>
+`;

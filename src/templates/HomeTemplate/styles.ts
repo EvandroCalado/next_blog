@@ -1,7 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const Container = styled.section`
-  ${({ theme }) => css`
-    background-color: ${theme.colors.mediumGray};
-  `}
+export const Container = styled.div`
+
 `;
