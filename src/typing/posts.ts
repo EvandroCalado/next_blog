@@ -79,6 +79,10 @@ export type PostStrapi = {
   };
 };
 
+export type PostsStrapi = {
+  data: PostStrapi[];
+};
+
 export type MetaStrapi = {
   pagination: {
     page: number;
