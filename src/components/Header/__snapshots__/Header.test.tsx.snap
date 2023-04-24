@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Header /> > should render 1`] = `
+.c0 {
+  background-color: #010101;
+  color: #FFFFFF;
+  font-size: 2.4rem;
+  padding: 2.4rem;
+  text-align: center;
+}
+
+<div>
+  <header
+    class="c0"
+  >
+    <a
+      href="/"
+    >
+      Evandro Calado
+    </a>
+  </header>
+</div>
+`;

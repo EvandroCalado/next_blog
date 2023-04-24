@@ -4,7 +4,7 @@ import * as Styled from './Header.styles';
 const Header = () => {
   return (
     <Styled.Container>
-      <Link href={'/'}>{process.env.SITE_NAME}</Link>
+      <Link href={'/'}>Evandro Calado</Link>
     </Styled.Container>
   );
 };

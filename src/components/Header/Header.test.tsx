@@ -4,8 +4,9 @@ import { renderTheme } from '../../styles/render-theme';
 
 describe('<Header />', () => {
   it('should render', () => {
-    renderTheme(<Header />);
+    const { container } = renderTheme(<Header />);
     expect(screen.getByRole('link')).toBeInTheDocument();
     expect(screen.getByRole('link')).toHaveAttribute('href', '/');
+    expect(container).toMatchSnapshot();
   });
 });
