@@ -26,7 +26,13 @@ export const GlobalStyles = createGlobalStyle`
     padding: ${({ theme }) => theme.spacings.medium};
   }
   a {
-    color: ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.secondary};
+    text-decoration: none;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+      opacity: .6;
+    }
   }
   .table {
     width: 100%;
