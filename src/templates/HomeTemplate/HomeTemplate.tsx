@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import PostCard from '../../components/PostCard/PostCard';
 import { PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
-import * as Styled from './styles';
+import * as Styled from './HomeTemplate.styles';
 
 export type HomeTemplateProps = {
   posts: PostsStrapi;
@@ -32,8 +32,8 @@ const HomeTemplate = ({ posts, settings }: HomeTemplateProps) => {
             />
           ))}
         </Styled.Container>
-        <Footer footer={footer} />
       </Container>
+      <Footer footer={footer} />
     </>
   );
 };

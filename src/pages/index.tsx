@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import { getAllPosts } from '../data/getAllPosts';
 import { PostsStrapi } from '../typing/posts';
-import HomeTemplate from '../templates/HomeTemplate';
+import HomeTemplate from '../templates/HomeTemplate/HomeTemplate';
 import { getSettings } from '../data/getSettings';
 import { SettingsStrapi } from '../typing/settings';
 
