@@ -26,6 +26,7 @@ const HomeTemplate = ({ posts, settings }: HomeTemplateProps) => {
               key={post.attributes.slug}
               cover={post.attributes.cover.data.attributes.formats.small.url}
               title={post.attributes.title}
+              excerpt={post.attributes.excerpt}
               slug={post.attributes.slug}
             />
           ))}

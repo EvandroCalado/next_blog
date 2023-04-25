@@ -5,19 +5,19 @@ export type PostCardProps = {
   slug: string;
   title: string;
   cover: string;
+  excerpt: string;
 };
 
-const PostCard = ({ slug, title, cover }: PostCardProps) => {
+const PostCard = ({ slug, title, cover, excerpt }: PostCardProps) => {
   return (
     <Styled.Wrapper>
-      <Styled.Cover>
-        <Link href={`/post/${slug}`}>
+      <Link href={`/post/${slug}`}>
+        <Styled.Cover>
           <img src={cover} alt={title} />
-        </Link>
-      </Styled.Cover>
-      <Styled.Heading>
-        <Link href={`/post/${slug}`}>{title}</Link>
-      </Styled.Heading>
+        </Styled.Cover>
+        <Styled.Heading>{title}</Styled.Heading>
+        <Styled.Paragraph>{excerpt}</Styled.Paragraph>
+      </Link>
     </Styled.Wrapper>
   );
 };
