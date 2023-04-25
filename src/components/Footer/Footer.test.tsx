@@ -1,14 +1,17 @@
-import Header from './Header';
+import Footer from './Footer';
 import { screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 
 import mock from './mock';
 
-describe('<Header />', () => {
+describe('<Footer />', () => {
   it('should render', () => {
-    const { container } = renderTheme(<Header {...mock} />);
+    const { container } = renderTheme(<Footer {...mock} />);
     expect(screen.getByRole('link')).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'href',
+      'https://github.com/EvandroCalado',
+    );
     expect(container).toMatchSnapshot();
   });
 });

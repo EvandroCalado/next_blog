@@ -68,6 +68,7 @@ export type PostStrapi = {
   id: number;
   attributes: {
     title: string;
+    excerpt: string;
     content: string;
     slug: string;
     createdAt: string;

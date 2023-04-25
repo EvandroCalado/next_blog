@@ -6,7 +6,34 @@ exports[`<Header /> > should render 1`] = `
   color: #FFFFFF;
   font-size: 2.4rem;
   padding: 2.4rem;
+  margin-bottom: 3.2rem;
   text-align: center;
+}
+
+.c0 a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.c2 {
+  font-size: 3.2rem;
+}
+
+.c1 {
+  width: 10rem;
+  border-radius: 50%;
+  border: 2px solid #005b96;
 }
 
 <div>
@@ -16,7 +43,16 @@ exports[`<Header /> > should render 1`] = `
     <a
       href="/"
     >
-      Evandro Calado
+      <img
+        alt="Evandro Calado"
+        class="c1"
+        src="https://avatars.githubusercontent.com/u/110628201?v=4"
+      />
+      <h1
+        class="c2"
+      >
+        Evandro Calado
+      </h1>
     </a>
   </header>
 </div>
