@@ -14,11 +14,12 @@ export type HomeTemplateProps = {
 const HomeTemplate = ({ posts, settings }: HomeTemplateProps) => {
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
+  const description = settings.data.attributes.description;
   const footer = settings.data.attributes.footer;
 
   return (
     <>
-      <Header image={image} title={title} />
+      <Header image={image} title={title} description={description} />
       <Container>
         <Styled.Container>
           {posts.data.map((post) => (

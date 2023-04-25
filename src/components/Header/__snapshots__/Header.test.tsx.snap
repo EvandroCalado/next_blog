@@ -28,6 +28,12 @@ exports[`<Header /> > should render 1`] = `
 
 .c2 {
   font-size: 3.2rem;
+  color: #005b96;
+}
+
+.c3 {
+  font-size: 1.6rem;
+  color: #005b96;
 }
 
 .c1 {
@@ -48,12 +54,17 @@ exports[`<Header /> > should render 1`] = `
         class="c1"
         src="https://avatars.githubusercontent.com/u/110628201?v=4"
       />
-      <h1
-        class="c2"
-      >
-        Evandro Calado
-      </h1>
     </a>
+    <h1
+      class="c2"
+    >
+      Evandro Calado
+    </h1>
+    <p
+      class="c3"
+    >
+      uma descrição
+    </p>
   </header>
 </div>
 `;

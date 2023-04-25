@@ -4,15 +4,17 @@ import * as Styled from './Header.styles';
 export type HeaderProps = {
   image: string;
   title: string;
+  description: string;
 };
 
-const Header = ({ image, title }: HeaderProps) => {
+const Header = ({ image, title, description }: HeaderProps) => {
   return (
     <Styled.Container>
       <Link href={'/'}>
         <Styled.Image src={image} alt={title} />
-        <Styled.Title>Evandro Calado</Styled.Title>
       </Link>
+      <Styled.Title>{title}</Styled.Title>
+      <Styled.Description>{description}</Styled.Description>
     </Styled.Container>
   );
 };

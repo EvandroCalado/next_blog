@@ -21,6 +21,14 @@ export const Container = styled.header`
 export const Title = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.large};
+    color: ${theme.colors.secondary};
+  `}
+`;
+
+export const Description = styled.p`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.small};
+    color: ${theme.colors.secondary};
   `}
 `;
 
