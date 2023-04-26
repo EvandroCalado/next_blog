@@ -12,7 +12,7 @@ const Comments = ({ title, slug }: CommentsProps) => {
       <DiscussionEmbed
         shortname="next-blog-9"
         config={{
-          url: `/post/${slug}`,
+          url: `${process.env.SITE_URL}/post/${slug}`,
           identifier: slug,
           title: title,
           language: 'pt-BR',
