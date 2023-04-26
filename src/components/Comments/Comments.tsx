@@ -12,10 +12,10 @@ const Comments = ({ title, slug }: CommentsProps) => {
       <DiscussionEmbed
         shortname="next-blog-9"
         config={{
-          url: `${process.env.SITE_URL}/post/${slug}`,
+          url: `https://next-blog-evandro.vercel.app/post/${slug}`,
           identifier: slug,
           title: title,
-          language: 'pt-BR',
+          language: 'pt_BR',
         }}
       />
     </Styled.Wrapper>

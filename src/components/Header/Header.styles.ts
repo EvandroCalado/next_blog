@@ -10,7 +10,6 @@ export const Container = styled.header`
     text-align: center;
 
     a {
-      display: flex;
       align-items: center;
       justify-content: center;
       gap: ${theme.spacings.medium};
