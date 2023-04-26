@@ -1,11 +1,11 @@
 import Container from '../../components/Container/Container';
+import Content from '../../components/Content/Content';
 import Cover from '../../components/Cover/Cover';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Heading from '../../components/Heading/Heading';
 import PostDetails from '../../components/PostDetails/PostDetails';
 import { PostStrapi } from '../../typing/posts';
-// import * as Styled from './PostTemplate.styles';
 
 export type PostTemplateProps = {
   post: PostStrapi;
@@ -36,7 +36,7 @@ const PostTemplate = ({
           author={post.attributes.author.data.attributes.name}
           categories={post.attributes.categories.data}
         />
-        <div dangerouslySetInnerHTML={{ __html: post.attributes.content }} />
+        <Content content={post.attributes.content} />
       </Container>
       <Footer footer={footer} />
     </>
