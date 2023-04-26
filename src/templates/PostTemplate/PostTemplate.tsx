@@ -1,6 +1,7 @@
 import Container from '../../components/Container/Container';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
+import Heading from '../../components/Heading/Heading';
 import { PostStrapi } from '../../typing/posts';
 // import * as Styled from './PostTemplate.styles';
 
@@ -23,7 +24,7 @@ const PostTemplate = ({
     <>
       <Header image={image} title={title} description={description} />
       <Container>
-        <h2>{post.attributes.title}</h2>
+        <Heading>{post.attributes.title}</Heading>
         <div dangerouslySetInnerHTML={{ __html: post.attributes.content }} />
       </Container>
       <Footer footer={footer} />
