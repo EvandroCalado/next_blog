@@ -1,3 +1,4 @@
+import Comments from '../../Comments/Comments';
 import Container from '../../components/Container/Container';
 import Content from '../../components/Content/Content';
 import Cover from '../../components/Cover/Cover';
@@ -37,6 +38,7 @@ const PostTemplate = ({
           categories={post.attributes.categories.data}
         />
         <Content content={post.attributes.content} />
+        <Comments title={post.attributes.title} slug={post.attributes.slug} />
       </Container>
       <Footer footer={footer} />
     </>

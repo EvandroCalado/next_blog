@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Date = styled.p`
+export const Date = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.secondary};
     font-style: italic;
