@@ -1,4 +1,5 @@
 import Container from '../../components/Container/Container';
+import Cover from '../../components/Cover/Cover';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Heading from '../../components/Heading/Heading';
@@ -25,6 +26,10 @@ const PostTemplate = ({
       <Header image={image} title={title} description={description} />
       <Container>
         <Heading>{post.attributes.title}</Heading>
+        <Cover
+          url={post.attributes.cover.data.attributes.url}
+          alt={post.attributes.cover.data.attributes.alternativeText}
+        />
         <div dangerouslySetInnerHTML={{ __html: post.attributes.content }} />
       </Container>
       <Footer footer={footer} />
