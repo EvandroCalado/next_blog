@@ -1,4 +1,4 @@
-import Comments from '../../Comments/Comments';
+import Comments from '../../components/Comments/Comments';
 import Container from '../../components/Container/Container';
 import Content from '../../components/Content/Content';
 import Cover from '../../components/Cover/Cover';
