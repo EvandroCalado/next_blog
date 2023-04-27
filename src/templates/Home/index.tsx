@@ -10,9 +10,10 @@ import Head from 'next/head';
 export type HomeTemplateProps = {
   posts: PostsStrapi;
   settings: SettingsStrapi;
+  category?: string;
 };
 
-const HomeTemplate = ({ posts, settings }: HomeTemplateProps) => {
+const HomeTemplate = ({ posts, settings, category }: HomeTemplateProps) => {
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
   const description = settings.data.attributes.description;
@@ -28,6 +29,7 @@ const HomeTemplate = ({ posts, settings }: HomeTemplateProps) => {
         />
       </Head>
       <Header image={image} title={title} description={description} />
+      {category && <Styled.Category>Categoría: {category}</Styled.Category>}
       <Container>
         <Styled.Container>
           {posts.data.map((post) => (

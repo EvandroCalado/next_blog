@@ -7,3 +7,13 @@ export const Container = styled.div`
     gap: ${theme.spacings.large};
   `}
 `;
+
+export const Category = styled.div`
+  ${({ theme }) => css`
+    text-align: center;
+    font-size: ${theme.font.sizes.medium};
+    margin-bottom: ${theme.spacings.large};
+    font-weight: bold;
+    text-transform: capitalize;
+  `}
+`;

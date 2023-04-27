@@ -13,7 +13,7 @@ exports[`<Footer /> should render 1`] = `
     class="c0"
   >
     <p>
-      Feito com por 
+      Feito por 
       <a
         href="https://github.com/EvandroCalado"
         target="_blanck"

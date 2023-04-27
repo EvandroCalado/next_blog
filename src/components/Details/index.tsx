@@ -22,7 +22,10 @@ const PostDetails = ({ date, author, categories }: PostDetailsProps) => {
       <span>por</span>
       <Link href={'#'}>{author}</Link> <span>em</span>
       {categories.map((category, index) => (
-        <Link key={`${index}-${category.attributes.name}`} href={'#'}>
+        <Link
+          key={`${index}-${category.attributes.name}`}
+          href={`/categories/${category.attributes.name.toLowerCase()}`}
+        >
           {category.attributes.name}
         </Link>
       ))}

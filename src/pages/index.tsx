@@ -5,12 +5,12 @@ import HomeTemplate from '../templates/Home';
 import { getSettings } from '../data/getSettings';
 import { SettingsStrapi } from '../typing/settings';
 
-export type HomeProps = {
+export type IndexProps = {
   posts: PostsStrapi;
   settings: SettingsStrapi;
 };
 
-const Index = ({ posts, settings }: HomeProps) => {
+const Index = ({ posts, settings }: IndexProps) => {
   return <HomeTemplate posts={posts} settings={settings} />;
 };
 
