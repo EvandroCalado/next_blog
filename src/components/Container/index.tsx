@@ -1,4 +1,4 @@
-import * as Styled from './Container.styles';
+import * as Styled from './styles';
 
 export type ContainerProps = {
   children: React.ReactNode;

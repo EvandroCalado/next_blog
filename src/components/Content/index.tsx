@@ -1,4 +1,4 @@
-import * as Styled from './Content.styles';
+import * as Styled from './styles';
 
 export type ContentProps = {
   content: string;

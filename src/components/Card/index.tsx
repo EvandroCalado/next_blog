@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import * as Styled from './PostCard.styles';
+import * as Styled from './styles';
 
 export type PostCardProps = {
   slug: string;

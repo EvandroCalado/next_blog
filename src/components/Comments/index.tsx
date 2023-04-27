@@ -1,4 +1,4 @@
-import * as Styled from './Comments.styles';
+import * as Styled from './styles';
 import { DiscussionEmbed } from 'disqus-react';
 
 export type CommentsProps = {

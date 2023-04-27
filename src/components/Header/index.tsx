@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import * as Styled from './Header.styles';
+import * as Styled from './styles';
 
 export type HeaderProps = {
   image: string;

@@ -1,11 +1,11 @@
-import Comments from '../../components/Comments/Comments';
-import Container from '../../components/Container/Container';
-import Content from '../../components/Content/Content';
-import Cover from '../../components/Cover/Cover';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
-import Heading from '../../components/Heading/Heading';
-import PostDetails from '../../components/PostDetails/PostDetails';
+import Comments from '../../components/Comments';
+import Container from '../../components/Container';
+import Content from '../../components/Content';
+import Cover from '../../components/Cover';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Heading from '../../components/Heading';
+import PostDetails from '../../components/Details';
 import { PostStrapi } from '../../typing/posts';
 
 export type PostTemplateProps = {

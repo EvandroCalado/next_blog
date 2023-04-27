@@ -1,4 +1,4 @@
-import Content, { ContentProps } from './Content';
+import Content, { ContentProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 import mock from './mock';

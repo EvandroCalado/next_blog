@@ -1,4 +1,4 @@
-import Heading, { HeadingProps } from './Heading';
+import Heading, { HeadingProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {

@@ -1,4 +1,4 @@
-import * as Styled from './Heading.styles';
+import * as Styled from './styles';
 
 export type HeadingProps = {
   children: React.ReactNode;

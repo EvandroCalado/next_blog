@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Date from '../Date/Date';
-import * as Styled from './PostDetails.styles';
+import Date from '../Date';
+import * as Styled from './styles';
 
 export type CategoryProps = {
   attributes: {

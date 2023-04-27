@@ -1,4 +1,4 @@
-import PostDetails, { PostDetailsProps } from './PostDetails';
+import PostDetails, { PostDetailsProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {

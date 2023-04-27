@@ -1,4 +1,4 @@
-import Date, { DateProps } from './Date';
+import Date, { DateProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {

@@ -1,4 +1,4 @@
-import PostCard from './PostCard';
+import PostCard from '.';
 import { screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 

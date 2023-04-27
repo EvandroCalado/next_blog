@@ -1,4 +1,4 @@
-import * as Styled from './Cover.styles';
+import * as Styled from './styles';
 
 export type CoverProps = {
   url: string;

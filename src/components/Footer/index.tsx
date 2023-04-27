@@ -1,4 +1,4 @@
-import * as Styled from './Footer.styles';
+import * as Styled from './styles';
 
 export type FooterProps = {
   footer: string;

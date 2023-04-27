@@ -1,7 +1,7 @@
-import Container from '../../components/Container/Container';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
-import PostCard from '../../components/PostCard/PostCard';
+import Container from '../../components/Container';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import PostCard from '../../components/Card';
 import { PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import * as Styled from './HomeTemplate.styles';

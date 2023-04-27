@@ -1,4 +1,4 @@
-import Container, { ContainerProps } from './Container';
+import Container, { ContainerProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {

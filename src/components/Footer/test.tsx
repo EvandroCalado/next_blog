@@ -1,4 +1,4 @@
-import Footer from './Footer';
+import Footer from '.';
 import { screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 

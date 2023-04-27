@@ -1,4 +1,4 @@
-import Comments, { CommentsProps } from './Comments';
+import Comments, { CommentsProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {

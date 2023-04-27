@@ -1,4 +1,4 @@
-import Container from './Container';
+import Container from '.';
 import { screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 

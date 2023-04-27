@@ -1,6 +1,6 @@
-import Header from './Header';
+import Header from '.';
 import { Meta, StoryFn } from '@storybook/react';
-import { HeaderProps } from './Header';
+import { HeaderProps } from '.';
 
 import mock from './mock';
 

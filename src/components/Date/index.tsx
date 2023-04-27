@@ -1,5 +1,5 @@
 import { formatDate } from '../../utils/formatDate';
-import * as Styled from './Date.styles';
+import * as Styled from './styles';
 
 export type DateProps = {
   date: string;
