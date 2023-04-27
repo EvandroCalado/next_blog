@@ -1,6 +1,6 @@
 import Footer from '.';
 import { screen } from '@testing-library/react';
-import { renderTheme } from '../../styles/render-theme';
+import { renderTheme } from '../../styles/renderTheme';
 
 import mock from './mock';
 

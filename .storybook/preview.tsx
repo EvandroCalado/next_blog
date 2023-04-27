@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme } from '../src/styles/theme';
-import { GlobalStyles } from '../src/styles/global-styles';
+import { GlobalStyles } from '../src/styles/globalStyles';
 import { ThemeProvider } from 'styled-components';
 import type { Preview } from '@storybook/react';
 
@@ -22,7 +22,7 @@ const preview: Preview = {
         },
         {
           name: 'dark',
-          value: theme.colors.primaryColor,
+          value: theme.colors.primary,
         },
       ],
     },

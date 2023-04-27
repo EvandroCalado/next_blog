@@ -4,7 +4,8 @@ import Header from '../../components/Header';
 import PostCard from '../../components/Card';
 import { PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
-import * as Styled from './HomeTemplate.styles';
+import * as Styled from './styles';
+import Head from 'next/head';
 
 export type HomeTemplateProps = {
   posts: PostsStrapi;
@@ -19,6 +20,13 @@ const HomeTemplate = ({ posts, settings }: HomeTemplateProps) => {
 
   return (
     <>
+      <Head>
+        <title>{settings.data.attributes.title}</title>
+        <meta
+          name="description"
+          content={settings.data.attributes.description}
+        />
+      </Head>
       <Header image={image} title={title} description={description} />
       <Container>
         <Styled.Container>

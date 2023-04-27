@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Heading from '../../components/Heading';
 import PostDetails from '../../components/Details';
 import { PostStrapi } from '../../typing/posts';
+import Head from 'next/head';
 
 export type PostTemplateProps = {
   post: PostStrapi;
@@ -25,6 +26,10 @@ const PostTemplate = ({
 }: PostTemplateProps) => {
   return (
     <>
+      <Head>
+        <title>{post.attributes.title}</title>
+        <meta name="description" content={post.attributes.excerpt} />
+      </Head>
       <Header image={image} title={title} description={description} />
       <Container>
         <Heading>{post.attributes.title}</Heading>

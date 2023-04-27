@@ -4,7 +4,7 @@ import { getPost } from '../../data/getPost';
 import { PostStrapi } from '../../typing/posts';
 import { getSettings } from '../../data/getSettings';
 import { SettingsStrapi } from '../../typing/settings';
-import PostTemplate from '../../templates/PostTemplate/PostTemplate';
+import PostTemplate from '../../templates/Post';
 
 export type PostProps = {
   post: PostStrapi;
@@ -54,6 +54,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       post: posts.data[0],
       settings,
     },
-    revalidate: 600,
+    revalidate: 10,
   };
 };

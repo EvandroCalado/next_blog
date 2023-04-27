@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import { getAllPosts } from '../data/getAllPosts';
 import { PostsStrapi } from '../typing/posts';
-import HomeTemplate from '../templates/HomeTemplate/HomeTemplate';
+import HomeTemplate from '../templates/Home';
 import { getSettings } from '../data/getSettings';
 import { SettingsStrapi } from '../typing/settings';
 
@@ -10,11 +10,11 @@ export type HomeProps = {
   settings: SettingsStrapi;
 };
 
-const Home = ({ posts, settings }: HomeProps) => {
+const Index = ({ posts, settings }: HomeProps) => {
   return <HomeTemplate posts={posts} settings={settings} />;
 };
 
-export default Home;
+export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts('?populate=*&sort=id:desc');
@@ -28,6 +28,6 @@ export const getStaticProps: GetStaticProps = async () => {
       posts,
       settings,
     },
-    revalidate: 600,
+    revalidate: 10,
   };
 };
