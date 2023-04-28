@@ -5,6 +5,8 @@ import { PostStrapi } from '../../typing/posts';
 import { getSettings } from '../../data/getSettings';
 import { SettingsStrapi } from '../../typing/settings';
 import PostTemplate from '../../templates/Post';
+import { useRouter } from 'next/router';
+import Error from 'next/error';
 
 export type PostProps = {
   post: PostStrapi;
@@ -12,6 +14,14 @@ export type PostProps = {
 };
 
 const Post = ({ post, settings }: PostProps) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Página em construção...</div>;
+  }
+
+  if (!post) return <Error statusCode={404} />;
+
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
   const description = settings.data.attributes.description;
@@ -41,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       };
     }),
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -54,6 +64,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       post: posts.data[0],
       settings,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };

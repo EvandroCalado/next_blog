@@ -9,6 +9,8 @@ export const getPost = async (
   const url = `${process.env.API_URL}${endpoints.getOnePost}?filters[slug][$containsi]=${slug}&populate=*`;
   const posts = await fetchJson<PostsStrapi>(url);
 
+  if (!posts.data.length) return posts;
+
   const content = await markdownToHtml(posts.data[0].attributes.content);
   posts.data[0].attributes.content = content;
 
