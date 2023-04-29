@@ -18,9 +18,13 @@ const Categories = ({ posts, settings, category }: CategoriesProps) => {
 export default Categories;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const urlQuery = `?populate=*&sort=id:desc&filters[categories][name][$containsi]=${ctx.query.category}`;
+  const sortQuery = `?populate=*&sort=id:desc`;
+  const categoryQuery = `&filters[categories][name][$containsi]=${ctx.query.category}`;
+  const paginationQuery = `&pagination[start]=0&pagination[limit]=6`;
 
-  const posts = await getAllPosts(urlQuery);
+  const posts = await getAllPosts(
+    `${sortQuery}${categoryQuery}${paginationQuery}`,
+  );
   const settings = await getSettings();
 
   // &filters[title][$containsi]=typescript para busca

@@ -2,18 +2,20 @@ import Container from '../../components/Container';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import PostCard from '../../components/Card';
-import { PostsStrapi } from '../../typing/posts';
+import { PaginationNext, PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import * as Styled from './styles';
 import Head from 'next/head';
+import Pagination from '../../components/Pagination';
 
-export type HomeTemplateProps = {
+export type HomeProps = {
   posts: PostsStrapi;
   settings: SettingsStrapi;
   category?: string;
+  pagination?: PaginationNext;
 };
 
-const HomeTemplate = ({ posts, settings, category }: HomeTemplateProps) => {
+const Home = ({ posts, settings, category, pagination }: HomeProps) => {
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
   const description = settings.data.attributes.description;
@@ -42,10 +44,11 @@ const HomeTemplate = ({ posts, settings, category }: HomeTemplateProps) => {
             />
           ))}
         </Styled.Container>
+        <Pagination {...pagination} />
       </Container>
       <Footer footer={footer} />
     </>
   );
 };
 
-export default HomeTemplate;
+export default Home;

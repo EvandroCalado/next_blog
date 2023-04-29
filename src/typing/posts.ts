@@ -93,3 +93,11 @@ export type PostsStrapi = {
   data: PostStrapi[];
   meta: MetaStrapi;
 };
+
+export type PaginationNext = {
+  nextPage: number;
+  previusPage: number;
+  numberOfPosts: number;
+  postsPerPage: number;
+  category?: string;
+};

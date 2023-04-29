@@ -17,7 +17,10 @@ const Index = ({ posts, settings }: IndexProps) => {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllPosts('?populate=*&sort=id:desc');
+  const sortQuery = `?populate=*&sort=id:desc`;
+  const paginationQuery = `&pagination[start]=0&pagination[limit]=6`;
+
+  const posts = await getAllPosts(`${sortQuery}${paginationQuery}`);
   const settings = await getSettings();
 
   // &filters[title][$containsi]=typescript para busca
