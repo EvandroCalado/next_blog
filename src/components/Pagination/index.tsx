@@ -29,12 +29,14 @@ const Pagination = ({
       )}
 
       <p>
-        {nextPage - 1} de {Math.round(numberOfPosts / 3)}
+        {nextPage - 1} de {Math.round(numberOfPosts / postsPerPage)}
       </p>
-      {hasNextPage && (
+      {hasNextPage ? (
         <Link as={nextLink} href={'/post/page/[...param]'}>
           {<ChevronRight />}
         </Link>
+      ) : (
+        <ChevronRight style={{ opacity: '0.5', cursor: 'not-allowed' }} />
       )}
     </Styled.Wrapper>
   );

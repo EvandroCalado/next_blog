@@ -20,7 +20,7 @@ const Post = ({ post, settings }: PostProps) => {
     return <div>Página em construção...</div>;
   }
 
-  if (!post) return <Error statusCode={404} />;
+  if (!post?.attributes) return <Error statusCode={404} />;
 
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
@@ -59,9 +59,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const posts = await getPost(ctx.params?.slug);
   const settings = await getSettings();
 
+  const post = posts.data.length > 0 ? posts.data[0] : {};
+
   return {
     props: {
-      post: posts.data[0],
+      post,
       settings,
     },
     revalidate: 60,

@@ -24,7 +24,8 @@ const PostDetails = ({ date, author, categories }: PostDetailsProps) => {
       {categories.map((category, index) => (
         <Link
           key={`${index}-${category.attributes.name}`}
-          href={`/categories/${category.attributes.name.toLowerCase()}`}
+          as={`/post/page/1/${category.attributes.name.toLowerCase()}`}
+          href={'/post/page/[...param'}
         >
           {category.attributes.name}
         </Link>

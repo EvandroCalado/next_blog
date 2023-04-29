@@ -7,6 +7,7 @@ import { SettingsStrapi } from '../../typing/settings';
 import * as Styled from './styles';
 import Head from 'next/head';
 import Pagination from '../../components/Pagination';
+import Link from 'next/link';
 
 export type HomeProps = {
   posts: PostsStrapi;
@@ -24,7 +25,7 @@ const Home = ({ posts, settings, category, pagination }: HomeProps) => {
   return (
     <>
       <Head>
-        <title>{settings.data.attributes.title}</title>
+        <title>{category ? category : settings.data.attributes.title}</title>
         <meta
           name="description"
           content={settings.data.attributes.description}
@@ -44,7 +45,14 @@ const Home = ({ posts, settings, category, pagination }: HomeProps) => {
             />
           ))}
         </Styled.Container>
-        <Pagination {...pagination} />
+
+        {!pagination?.nextPage ? (
+          <Link as={'/post/page/1'} href={'/post/page/[...param]'}>
+            Ver todos os posts
+          </Link>
+        ) : (
+          <Pagination {...pagination} />
+        )}
       </Container>
       <Footer footer={footer} />
     </>

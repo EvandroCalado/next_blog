@@ -39,9 +39,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const page = Number(ctx.params.param[0]);
-  const category = ctx.params.param[1] || '';
-  const postsPerPage = 3;
+  const page = Number(ctx.params?.param?.[0]);
+  const category = ctx.params?.param?.[1] || '';
+  const postsPerPage = 6;
   const startFrom = (page - 1) * postsPerPage;
 
   const nextPage = page + 1;
@@ -60,10 +60,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const numberOfPosts = posts.meta.pagination.total;
 
-  console.log(category);
-
-  // &filters[title][$containsi]=typescript para busca
-  // &pagination[pageSize]=3&pagination[page]=1 paginação
   const pagination: PaginationNext = {
     nextPage,
     previusPage,

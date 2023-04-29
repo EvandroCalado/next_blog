@@ -27,9 +27,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   );
   const settings = await getSettings();
 
-  // &filters[title][$containsi]=typescript para busca
-  // &pagination[pageSize]=3&pagination[page]=1 paginação
-
   return {
     props: {
       posts,
