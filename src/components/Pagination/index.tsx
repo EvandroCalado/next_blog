@@ -29,7 +29,7 @@ const Pagination = ({
       )}
 
       <p>
-        {nextPage - 1} de {Math.round(numberOfPosts / postsPerPage)}
+        {nextPage - 1} de {Math.ceil(numberOfPosts / postsPerPage)}
       </p>
       {hasNextPage ? (
         <Link as={nextLink} href={'/post/page/[...param]'}>
