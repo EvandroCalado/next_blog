@@ -1,11 +1,11 @@
 import * as Styled from './styles';
 
-export type TitleProps = {
+export type CategoryProps = {
   image: string;
   title: string;
 };
 
-const Title = ({ image, title }: TitleProps) => {
+const Category = ({ image, title }: CategoryProps) => {
   return (
     <Styled.Wrapper>
       <Styled.Image src={image} alt={title} />
@@ -14,4 +14,4 @@ const Title = ({ image, title }: TitleProps) => {
   );
 };
 
-export default Title;
+export default Category;

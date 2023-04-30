@@ -3,7 +3,7 @@ import { PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import { getAllPosts } from '../../data/getAllPosts';
 import { getSettings } from '../../data/getSettings';
-import HomeTemplate from '../../templates/Home';
+import Home from '../../templates/Home';
 
 export type CategoriesProps = {
   posts: PostsStrapi;
@@ -12,7 +12,7 @@ export type CategoriesProps = {
 };
 
 const Categories = ({ posts, settings, category }: CategoriesProps) => {
-  return <HomeTemplate posts={posts} settings={settings} category={category} />;
+  return <Home posts={posts} settings={settings} category={category} />;
 };
 
 export default Categories;

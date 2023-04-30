@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import * as Styled from './styles';
 
-export type PostCardProps = {
+export type CardProps = {
   slug: string;
   title: string;
   cover: string;
   excerpt: string;
 };
 
-const PostCard = ({ slug, title, cover, excerpt }: PostCardProps) => {
+const Card = ({ slug, title, cover, excerpt }: CardProps) => {
   return (
     <Styled.Wrapper>
       <Link href={`/post/${slug}`}>
@@ -22,4 +22,4 @@ const PostCard = ({ slug, title, cover, excerpt }: PostCardProps) => {
   );
 };
 
-export default PostCard;
+export default Card;

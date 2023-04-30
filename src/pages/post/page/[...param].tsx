@@ -2,9 +2,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Home from '../../../templates/Home';
 import { PaginationNext, PostsStrapi } from '../../../typing/posts';
 import { SettingsStrapi } from '../../../typing/settings';
-import { getAllPosts } from '../../../data/getAllPosts';
-import { getSettings } from '../../../data/getSettings';
 import { useRouter } from 'next/router';
+import { getPosts } from '../../../data/getPosts';
+import { getSetting } from '../../../data/getSetting';
 
 export type PageProps = {
   posts: PostsStrapi;
@@ -47,23 +47,40 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const nextPage = page + 1;
   const previusPage = page - 1;
 
-  const sortQuery = `?populate=*&sort=id:desc`;
-  const categoryQuery = category
-    ? `&filters[categories][name][$containsi]=${category}`
-    : '';
-  const paginationQuery = `&pagination[start]=${startFrom}&pagination[limit]=${postsPerPage}`;
+  // const sortQuery = `?populate=*&sort=id:desc`;
+  // const categoryQuery = category
+  //   ? `&filters[categories][name][$containsi]=${category}`
+  //   : '';
+  // const paginationQuery = `&pagination[start]=${startFrom}&pagination[limit]=${postsPerPage}`;
 
-  const posts = await getAllPosts(
-    `${sortQuery}${paginationQuery}${categoryQuery}`,
-  );
-  const settings = await getSettings();
+  // const posts = await getAllPosts(
+  //   `${sortQuery}${paginationQuery}${categoryQuery}`,
+  // );
+  // const settings = await getSettings();
 
-  const numberOfPosts = posts.meta.pagination.total;
+  // const numberOfPosts = posts.meta.pagination.total;
+
+  let posts = null;
+  let settings = null;
+
+  try {
+    posts = await getPosts(
+      {
+        sort: 'createdAt:desc',
+        start: startFrom,
+        limit: postsPerPage,
+      },
+      { category },
+    );
+    settings = await getSetting();
+  } catch (error) {
+    console.log(error);
+  }
 
   const pagination: PaginationNext = {
     nextPage,
     previusPage,
-    numberOfPosts,
+    numberOfPosts: posts.meta.pagination.total,
     postsPerPage,
     category,
   };

@@ -9,7 +9,7 @@ import PostDetails from '../../components/Details';
 import { PostStrapi } from '../../typing/posts';
 import Head from 'next/head';
 
-export type PostTemplateProps = {
+export type PostProps = {
   post: PostStrapi;
   image: string;
   title: string;
@@ -17,13 +17,7 @@ export type PostTemplateProps = {
   footer: string;
 };
 
-const PostTemplate = ({
-  post,
-  image,
-  title,
-  description,
-  footer,
-}: PostTemplateProps) => {
+const Post = ({ post, image, title, description, footer }: PostProps) => {
   return (
     <>
       <Head>
@@ -50,4 +44,4 @@ const PostTemplate = ({
   );
 };
 
-export default PostTemplate;
+export default Post;

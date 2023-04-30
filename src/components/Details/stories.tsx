@@ -1,9 +1,9 @@
-import PostDetails, { PostDetailsProps } from '.';
+import Details, { DetailsProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {
-  title: 'PostDetails',
-  component: PostDetails,
+  title: 'Details',
+  component: Details,
   args: {
     date: '2023-04-25T12:45:35.146Z',
     author: 'Evandro Calado',
@@ -22,8 +22,8 @@ export default {
   },
 } as Meta;
 
-export const Template: StoryFn<PostDetailsProps> = (args) => (
+export const Template: StoryFn<DetailsProps> = (args) => (
   <div>
-    <PostDetails {...args} />
+    <Details {...args} />
   </div>
 );

@@ -1,16 +1,16 @@
-import PostCard, { PostCardProps } from '.';
+import Card, { CardProps } from '.';
 import { Meta, StoryFn } from '@storybook/react';
 
 import mock from './mock';
 
 export default {
-  title: 'PostCard',
-  component: PostCard,
+  title: 'Card',
+  component: Card,
   args: mock,
 } as Meta;
 
-export const Template: StoryFn<PostCardProps> = (args) => (
+export const Template: StoryFn<CardProps> = (args) => (
   <div>
-    <PostCard {...args} />
+    <Card {...args} />
   </div>
 );

@@ -1,7 +1,7 @@
 import Container from '../../components/Container';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import PostCard from '../../components/Card';
+import Card from '../../components/Card';
 import { PaginationNext, PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import * as Styled from './styles';
@@ -36,9 +36,9 @@ const Home = ({ posts, settings, category, pagination }: HomeProps) => {
       <Container>
         <Styled.Container>
           {posts.data.map((post) => (
-            <PostCard
+            <Card
               key={post.attributes.slug}
-              cover={post.attributes.cover.data.attributes.formats.small.url}
+              cover={post.attributes.cover.data.attributes.url}
               title={post.attributes.title}
               excerpt={post.attributes.excerpt}
               slug={post.attributes.slug}

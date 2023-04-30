@@ -8,13 +8,13 @@ export type CategoryProps = {
   };
 };
 
-export type PostDetailsProps = {
+export type DetailsProps = {
   date: string;
   author: string;
   categories: CategoryProps[];
 };
 
-const PostDetails = ({ date, author, categories }: PostDetailsProps) => {
+const Details = ({ date, author, categories }: DetailsProps) => {
   return (
     <Styled.Wrapper>
       <span>Publicado em</span>
@@ -34,4 +34,4 @@ const PostDetails = ({ date, author, categories }: PostDetailsProps) => {
   );
 };
 
-export default PostDetails;
+export default Details;
