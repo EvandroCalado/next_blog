@@ -10,10 +10,20 @@ export type AuthorStrapi = {
   };
 };
 
+export type ImageCategoryStrapi = {
+  data: {
+    attributes: {
+      name: string;
+      url: string;
+    };
+  };
+};
+
 export type CategoryStrapi = {
   id: number;
   attributes: {
     name: string;
+    image: ImageCategoryStrapi;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;

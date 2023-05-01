@@ -41,27 +41,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const page = Number(ctx.params?.param?.[0]);
   const category = ctx.params?.param?.[1] || '';
+  const author = ctx.params?.param?.[2] || '';
   const postsPerPage = 6;
   const startFrom = (page - 1) * postsPerPage;
 
   const nextPage = page + 1;
   const previusPage = page - 1;
 
-  // const sortQuery = `?populate=*&sort=id:desc`;
-  // const categoryQuery = category
-  //   ? `&filters[categories][name][$containsi]=${category}`
-  //   : '';
-  // const paginationQuery = `&pagination[start]=${startFrom}&pagination[limit]=${postsPerPage}`;
-
-  // const posts = await getAllPosts(
-  //   `${sortQuery}${paginationQuery}${categoryQuery}`,
-  // );
-  // const settings = await getSettings();
-
-  // const numberOfPosts = posts.meta.pagination.total;
-
   let posts = null;
   let settings = null;
+
+  const filterQuery = author ? { author } : { category };
 
   try {
     posts = await getPosts(
@@ -70,7 +60,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         start: startFrom,
         limit: postsPerPage,
       },
-      { category },
+      { ...filterQuery },
     );
     settings = await getSetting();
   } catch (error) {

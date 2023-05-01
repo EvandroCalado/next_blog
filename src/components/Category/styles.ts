@@ -7,13 +7,17 @@ ${({ theme }) => css`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin: ${theme.spacings.large} 0;
+  margin: ${theme.spacings.xxlarge} 0;
 `}
 `;
 
 export const Image = styled.img`
-  width: 4.5rem;
+  width: 8rem;
+  border-radius: 0.3rem;
 `;
 
 export const Title = styled.h2`
+${({ theme }) => css`
+  font-size: ${theme.font.sizes.xlarge};
+`}
 `;

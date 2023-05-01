@@ -8,6 +8,7 @@ import * as Styled from './styles';
 import Head from 'next/head';
 import Pagination from '../../components/Pagination';
 import Link from 'next/link';
+import Category from '../../components/Category';
 
 export type HomeProps = {
   posts: PostsStrapi;
@@ -32,7 +33,7 @@ const Home = ({ posts, settings, category, pagination }: HomeProps) => {
         />
       </Head>
       <Header image={image} title={title} description={description} />
-      {category && <Styled.Category>Categoría: {category}</Styled.Category>}
+      {category && <Category post={posts.data[0]} category={category} />}
       <Container>
         <Styled.Container>
           {posts.data.map((post) => (
