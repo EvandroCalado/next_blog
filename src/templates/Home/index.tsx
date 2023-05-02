@@ -10,6 +10,8 @@ import Pagination from '../../components/Pagination';
 import Link from 'next/link';
 import Category from '../../components/Category';
 import Author from '../../components/Author';
+import { ChevronRight } from '@styled-icons/material-outlined';
+import Button from '../../components/Button';
 
 export type HomeProps = {
   posts: PostsStrapi;
@@ -51,8 +53,10 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
         </Styled.Container>
 
         {!pagination?.nextPage ? (
-          <Link as={'/post/page/1'} href={'/post/page/[...param]'}>
-            Ver todos os posts
+          <Link href={'/post/page/1'} style={{ opacity: '1' }}>
+            <Button icon={<ChevronRight />} color="primary">
+              Ver todos
+            </Button>
           </Link>
         ) : (
           <Pagination {...pagination} />
