@@ -36,6 +36,16 @@ export type CategoriesStrapi = {
   data: CategoryStrapi[];
 };
 
+export type TagStrapi = {
+  attributes: {
+    name: string;
+  };
+};
+
+export type TagsStrapi = {
+  data: TagStrapi[];
+};
+
 export type FormatCoverStrapi = {
   ext: string;
   url: string;
@@ -89,6 +99,7 @@ export type PostStrapi = {
     cover: CoverStrapi;
     author: AuthorStrapi;
     categories: CategoriesStrapi;
+    tags: TagsStrapi;
   };
 };
 

@@ -33,14 +33,6 @@ fragment categoryPost on Category {
 
 fragment tagPost on Tag {
   name
-  image {
-    data {
-      attributes {
-        name
-        url
-      }
-    }
-  }
 }
 
 fragment post on Post {

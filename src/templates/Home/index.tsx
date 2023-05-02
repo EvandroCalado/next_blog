@@ -1,16 +1,16 @@
+import * as Styled from './styles';
 import Container from '../../components/Container';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
 import { PaginationNext, PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
-import * as Styled from './styles';
+import { ChevronRight } from '@styled-icons/material-outlined';
 import Head from 'next/head';
 import Pagination from '../../components/Pagination';
 import Link from 'next/link';
 import Category from '../../components/Category';
 import Author from '../../components/Author';
-import { ChevronRight } from '@styled-icons/material-outlined';
 import Button from '../../components/Button';
 
 export type HomeProps = {

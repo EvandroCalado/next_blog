@@ -1,12 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { getAllPosts } from '../../data/getAllPosts';
-import { getPost } from '../../data/getPost';
 import { PostStrapi } from '../../typing/posts';
-import { getSettings } from '../../data/getSettings';
 import { SettingsStrapi } from '../../typing/settings';
 import PostTemplate from '../../templates/Post';
 import { useRouter } from 'next/router';
 import Error from 'next/error';
+import { getPosts } from '../../data/getPosts';
+import { markdownToHtml } from '../../utils/markdownToHtml';
+import { getSetting } from '../../data/getSetting';
 
 export type PostProps = {
   post: PostStrapi;
@@ -56,8 +57,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const posts = await getPost(ctx.params?.slug);
-  const settings = await getSettings();
+  let posts = null;
+  let settings = null;
+
+  try {
+    posts = await getPosts({ slug: ctx.params?.slug });
+    settings = await getSetting();
+  } catch (error) {
+    console.log(error);
+  }
+
+  const content = await markdownToHtml(posts.data[0].attributes.content);
+  posts.data[0].attributes.content = content;
 
   const post = posts.data.length > 0 ? posts.data[0] : {};
 

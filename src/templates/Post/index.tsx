@@ -8,6 +8,7 @@ import Heading from '../../components/Heading';
 import PostDetails from '../../components/Details';
 import { PostStrapi } from '../../typing/posts';
 import Head from 'next/head';
+import Tags from '../../components/Tags';
 
 export type PostProps = {
   post: PostStrapi;
@@ -37,6 +38,7 @@ const Post = ({ post, image, title, description, footer }: PostProps) => {
           categories={post.attributes.categories.data}
         />
         <Content content={post.attributes.content} />
+        <Tags tags={post.attributes.tags.data} />
         <Comments title={post.attributes.title} slug={post.attributes.slug} />
       </Container>
       <Footer footer={footer} />
