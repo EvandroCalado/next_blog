@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next';
-import { getAllPosts } from '../data/getAllPosts';
 import { PostsStrapi } from '../typing/posts';
-import HomeTemplate from '../templates/Home';
-import { getSettings } from '../data/getSettings';
+import Home from '../templates/Home';
 import { SettingsStrapi } from '../typing/settings';
+import { getPosts } from '../data/getPosts';
+import { getSetting } from '../data/getSetting';
 
 export type IndexProps = {
   posts: PostsStrapi;
@@ -11,17 +11,21 @@ export type IndexProps = {
 };
 
 const Index = ({ posts, settings }: IndexProps) => {
-  return <HomeTemplate posts={posts} settings={settings} />;
+  return <Home posts={posts} settings={settings} />;
 };
 
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const sortQuery = `?populate=*&sort=id:desc`;
-  const paginationQuery = `&pagination[start]=0&pagination[limit]=6`;
+  let posts = null;
+  let settings = null;
 
-  const posts = await getAllPosts(`${sortQuery}${paginationQuery}`);
-  const settings = await getSettings();
+  try {
+    posts = await getPosts();
+    settings = await getSetting();
+  } catch (error) {
+    console.log(error);
+  }
 
   return {
     props: {

@@ -8,6 +8,7 @@ export const GRAPHQL_FRAGMENTS = gql`
 
 fragment authorPost on Author {
   name
+  resume
   image {
     data {
       attributes {

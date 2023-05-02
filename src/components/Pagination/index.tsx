@@ -11,19 +11,22 @@ const Pagination = ({
   postsPerPage,
   previusPage,
   category,
+  author,
 }: PaginationProps) => {
   const categoryName = category || '';
-  const nextLink = `/post/page/${nextPage}/${categoryName}`;
-  const previusLink = `/post/page/${previusPage}/${categoryName}`;
+  const nextLink = author
+    ? `/post/page/${nextPage}/${categoryName}/${author}`
+    : `/post/page/${nextPage}/${categoryName}`;
+  const previusLink = author
+    ? `/post/page/${previusPage}/${categoryName}/${author}`
+    : `/post/page/${previusPage}/${categoryName}`;
   const hasNextPage = nextPage * postsPerPage < postsPerPage + numberOfPosts;
   const hasPreviusPage = previusPage >= 1;
 
   return (
     <Styled.Wrapper>
       {hasPreviusPage ? (
-        <Link as={previusLink} href={'/post/page/[...param]'}>
-          {<ChevronLeft />}
-        </Link>
+        <Link href={previusLink}>{<ChevronLeft />}</Link>
       ) : (
         <ChevronLeft style={{ opacity: '0.5', cursor: 'not-allowed' }} />
       )}
@@ -32,9 +35,7 @@ const Pagination = ({
         {nextPage - 1} de {Math.ceil(numberOfPosts / postsPerPage)}
       </p>
       {hasNextPage ? (
-        <Link as={nextLink} href={'/post/page/[...param]'}>
-          {<ChevronRight />}
-        </Link>
+        <Link href={nextLink}>{<ChevronRight />}</Link>
       ) : (
         <ChevronRight style={{ opacity: '0.5', cursor: 'not-allowed' }} />
       )}

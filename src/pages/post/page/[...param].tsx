@@ -10,10 +10,11 @@ export type PageProps = {
   posts: PostsStrapi;
   settings: SettingsStrapi;
   category?: string;
+  author?: string;
   pagination: PaginationNext;
 };
 
-const Page = ({ posts, settings, category, pagination }: PageProps) => {
+const Page = ({ posts, settings, category, author, pagination }: PageProps) => {
   const router = useRouter();
 
   if (router.isFallback) return <div>Página carregando...</div>;
@@ -25,6 +26,7 @@ const Page = ({ posts, settings, category, pagination }: PageProps) => {
       settings={settings}
       category={category}
       pagination={pagination}
+      author={author}
     />
   );
 };
@@ -73,6 +75,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     numberOfPosts: posts.meta.pagination.total,
     postsPerPage,
     category,
+    author,
   };
 
   return {
@@ -81,6 +84,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       settings,
       pagination,
       category,
+      author,
     },
     revalidate: 60,
   };

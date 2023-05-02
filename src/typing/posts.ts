@@ -1,20 +1,22 @@
-export type AuthorStrapi = {
-  data: {
-    id: number;
-    attributes: {
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-    };
-  };
-};
-
 export type ImageCategoryStrapi = {
   data: {
     attributes: {
       name: string;
       url: string;
+    };
+  };
+};
+
+export type AuthorStrapi = {
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+      resume: string;
+      image: ImageCategoryStrapi;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
     };
   };
 };
@@ -110,4 +112,5 @@ export type PaginationNext = {
   numberOfPosts: number;
   postsPerPage: number;
   category?: string;
+  author?: string;
 };

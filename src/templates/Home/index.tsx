@@ -9,15 +9,17 @@ import Head from 'next/head';
 import Pagination from '../../components/Pagination';
 import Link from 'next/link';
 import Category from '../../components/Category';
+import Author from '../../components/Author';
 
 export type HomeProps = {
   posts: PostsStrapi;
   settings: SettingsStrapi;
   category?: string;
+  author?: string;
   pagination?: PaginationNext;
 };
 
-const Home = ({ posts, settings, category, pagination }: HomeProps) => {
+const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
   const description = settings.data.attributes.description;
@@ -33,10 +35,11 @@ const Home = ({ posts, settings, category, pagination }: HomeProps) => {
         />
       </Head>
       <Header image={image} title={title} description={description} />
+      {author && <Author post={posts.data[0]} />}
       {category && <Category post={posts.data[0]} category={category} />}
       <Container>
         <Styled.Container>
-          {posts.data.map((post) => (
+          {posts?.data?.map((post) => (
             <Card
               key={post.attributes.slug}
               cover={post.attributes.cover.data.attributes.url}
