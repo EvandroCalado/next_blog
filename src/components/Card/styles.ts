@@ -22,7 +22,7 @@ export const Cover = styled.div`
 export const Heading = styled.h2`
   ${({ theme }) => css`
     padding: 1rem;
-    font-size: ${theme.font.sizes.medium};
+    font-size: ${theme.font.sizes.smallMedium};
     color: ${theme.colors.darkGray};
   `}
 `;

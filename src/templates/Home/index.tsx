@@ -46,7 +46,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
               key={post.attributes.slug}
               cover={post.attributes.cover.data.attributes.url}
               title={post.attributes.title}
-              excerpt={post.attributes.excerpt}
+              date={post.attributes.createdAt}
               slug={post.attributes.slug}
             />
           ))}

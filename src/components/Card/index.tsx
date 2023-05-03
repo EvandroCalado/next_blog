@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import * as Styled from './styles';
+import Date from '../Date';
 
 export type CardProps = {
   slug: string;
   title: string;
   cover: string;
-  excerpt: string;
+  date: string;
 };
 
-const Card = ({ slug, title, cover, excerpt }: CardProps) => {
+const Card = ({ slug, title, cover, date }: CardProps) => {
   return (
     <Styled.Wrapper>
       <Link href={`/post/${slug}`}>
@@ -16,7 +17,9 @@ const Card = ({ slug, title, cover, excerpt }: CardProps) => {
           <img src={cover} alt={title} />
         </Styled.Cover>
         <Styled.Heading>{title}</Styled.Heading>
-        <Styled.Paragraph>{excerpt}</Styled.Paragraph>
+        <Styled.Paragraph>
+          <Date date={date} />
+        </Styled.Paragraph>
       </Link>
     </Styled.Wrapper>
   );

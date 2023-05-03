@@ -9,6 +9,8 @@ import PostDetails from '../../components/Details';
 import { PostStrapi } from '../../typing/posts';
 import Head from 'next/head';
 import Tags from '../../components/Tags';
+import GoToTop from '../../components/GoToTop';
+import Excerpt from '../../components/Excerpt';
 
 export type PostProps = {
   post: PostStrapi;
@@ -18,7 +20,14 @@ export type PostProps = {
   footer: string;
 };
 
-const Post = ({ post, image, title, description, footer }: PostProps) => {
+const PostTemplate = ({
+  post,
+  image,
+  title,
+  description,
+  footer,
+}: PostProps) => {
+  console.log();
   return (
     <>
       <Head>
@@ -28,6 +37,7 @@ const Post = ({ post, image, title, description, footer }: PostProps) => {
       <Header image={image} title={title} description={description} />
       <Container>
         <Heading>{post.attributes.title}</Heading>
+        <Excerpt excerpt={post.attributes.excerpt} />
         <Cover
           url={post.attributes.cover.data.attributes.url}
           alt={post.attributes.cover.data.attributes.alternativeText}
@@ -40,10 +50,11 @@ const Post = ({ post, image, title, description, footer }: PostProps) => {
         <Content content={post.attributes.content} />
         <Tags tags={post.attributes.tags.data} />
         <Comments title={post.attributes.title} slug={post.attributes.slug} />
+        <GoToTop />
       </Container>
       <Footer footer={footer} />
     </>
   );
 };
 
-export default Post;
+export default PostTemplate;
