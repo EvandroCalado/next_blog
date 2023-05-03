@@ -2,7 +2,7 @@ import React from 'react';
 import * as Styled from './styles';
 
 export type ButtonProps = {
-  children: string;
+  children: React.ReactNode;
   color: 'primary' | 'secondary';
   icon?: React.ReactNode;
   disasbled?: boolean;

@@ -31,8 +31,7 @@ export const Button = styled.button<Pick<ButtonProps, 'color'>>`
     }
 
     > svg {
-      width: 3rem;
-      margin-left: 1rem;
+      width: 4rem;
     }
   `}
 `;

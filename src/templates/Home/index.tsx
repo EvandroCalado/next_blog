@@ -62,7 +62,10 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
           {router.route === '/search/[title]' ? (
             ''
           ) : !pagination?.nextPage ? (
-            <Link href={'/post/page/1'} style={{ opacity: '1' }}>
+            <Link
+              href={'/post/page/1'}
+              style={{ opacity: '1', display: 'inline-block' }}
+            >
               <Button icon={<ChevronRight />} color="primary">
                 Ver todos
               </Button>
