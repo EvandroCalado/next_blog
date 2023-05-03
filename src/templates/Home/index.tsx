@@ -12,6 +12,8 @@ import Link from 'next/link';
 import Category from '../../components/Category';
 import Author from '../../components/Author';
 import Button from '../../components/Button';
+import { useRouter } from 'next/router';
+import NotFound from '../../components/NotFound';
 
 export type HomeProps = {
   posts: PostsStrapi;
@@ -22,6 +24,8 @@ export type HomeProps = {
 };
 
 const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
+  const router = useRouter();
+
   const image = settings.data.attributes.avatar.data.attributes.url;
   const title = settings.data.attributes.title;
   const description = settings.data.attributes.description;
@@ -40,7 +44,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
       {author && <Author post={posts.data[0]} />}
       {category && <Category post={posts.data[0]} category={category} />}
       {posts.data.length <= 0 ? (
-        <div>Não encontrado</div>
+        <NotFound>Não encontrado</NotFound>
       ) : (
         <Container>
           <Styled.Container>
@@ -55,7 +59,9 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
             ))}
           </Styled.Container>
 
-          {!pagination?.nextPage ? (
+          {router.route === '/search/[title]' ? (
+            ''
+          ) : !pagination?.nextPage ? (
             <Link href={'/post/page/1'} style={{ opacity: '1' }}>
               <Button icon={<ChevronRight />} color="primary">
                 Ver todos
