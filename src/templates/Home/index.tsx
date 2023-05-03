@@ -39,29 +39,33 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
       <Header image={image} title={title} description={description} />
       {author && <Author post={posts.data[0]} />}
       {category && <Category post={posts.data[0]} category={category} />}
-      <Container>
-        <Styled.Container>
-          {posts?.data?.map((post) => (
-            <Card
-              key={post.attributes.slug}
-              cover={post.attributes.cover.data.attributes.url}
-              title={post.attributes.title}
-              date={post.attributes.createdAt}
-              slug={post.attributes.slug}
-            />
-          ))}
-        </Styled.Container>
+      {posts.data.length <= 0 ? (
+        <div>Não encontrado</div>
+      ) : (
+        <Container>
+          <Styled.Container>
+            {posts?.data?.map((post) => (
+              <Card
+                key={post.attributes.slug}
+                cover={post.attributes.cover.data.attributes.url}
+                title={post.attributes.title}
+                date={post.attributes.createdAt}
+                slug={post.attributes.slug}
+              />
+            ))}
+          </Styled.Container>
 
-        {!pagination?.nextPage ? (
-          <Link href={'/post/page/1'} style={{ opacity: '1' }}>
-            <Button icon={<ChevronRight />} color="primary">
-              Ver todos
-            </Button>
-          </Link>
-        ) : (
-          <Pagination {...pagination} />
-        )}
-      </Container>
+          {!pagination?.nextPage ? (
+            <Link href={'/post/page/1'} style={{ opacity: '1' }}>
+              <Button icon={<ChevronRight />} color="primary">
+                Ver todos
+              </Button>
+            </Link>
+          ) : (
+            <Pagination {...pagination} />
+          )}
+        </Container>
+      )}
       <Footer footer={footer} />
     </>
   );

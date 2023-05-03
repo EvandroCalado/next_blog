@@ -9,7 +9,7 @@ export const GET_POSTS = gql`
   $author: String
   $tag: String
   $slug: String
-  $postTitle: String
+  $title: String
   $sort: [String] = "createdAt:desc"
   $start: Int = 0
   $limit: Int = 6
@@ -31,7 +31,7 @@ export const GET_POSTS = gql`
         name: { containsi: $tag }
       }
       slug: { containsi: $slug }
-      title: { containsi: $postTitle }
+      title: { containsi: $title }
     }
   ) {
     data {
