@@ -2,11 +2,10 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    box-shadow: 10px 10px 14px -11px rgba(0,0,0,0.34);
-    -webkit-box-shadow: 10px 10px 14px -11px rgba(0,0,0,0.34);
-    -moz-box-shadow: 10px 10px 14px -11px rgba(0,0,0,0.34);
+    -webkit-box-shadow: 0px 4px 13px -1px rgba(0,0,0,0.34);
+    -moz-box-shadow: 0px 4px 13px -1px rgba(0,0,0,0.34);
+    box-shadow: 0px 4px 13px -1px rgba(0,0,0,0.34);
     border-radius: ${theme.spacings.xsmall};
-    border: 0.1px solid ${theme.colors.lightGray};
     overflow: hidden;
   `}
 `;

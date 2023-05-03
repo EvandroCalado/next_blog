@@ -3,18 +3,16 @@ import styled, { css } from 'styled-components';
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
     font-weight: 500;
     color: ${theme.colors.mediumGray};
     font-style: italic;
     margin-bottom: ${theme.spacings.large};
-    span {
-      margin-right: 1rem;
-    }
-
-    & a:not(:last-of-type)::after {
+  
+    & a:not(:last-of-type):not(:first-of-type)::after {
       content: ',';
-      margin-right: 0.5rem;
     } 
-
   `}
 `;

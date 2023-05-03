@@ -5,6 +5,8 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
     gap: ${theme.spacings.large};
+    grid-template-areas: 
+    ;
   `}
 `;
 

@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import * as Styled from './styles';
+import Search from '../Search';
+import Logo from '../Logo';
 
 export type HeaderProps = {
   image: string;
@@ -9,13 +10,12 @@ export type HeaderProps = {
 
 const Header = ({ image, title, description }: HeaderProps) => {
   return (
-    <Styled.Container>
-      <Link href={'/'}>
-        <Styled.Image src={image} alt={title} />
-      </Link>
-      <Styled.Title>{title}</Styled.Title>
-      <Styled.Description>{description}</Styled.Description>
-    </Styled.Container>
+    <Styled.Header>
+      <Styled.Wrapper>
+        <Logo image={image} title={title} description={description} />
+        <Search />
+      </Styled.Wrapper>
+    </Styled.Header>
   );
 };
 
