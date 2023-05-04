@@ -14,6 +14,7 @@ import Author from '../../components/Author';
 import Button from '../../components/Button';
 import { useRouter } from 'next/router';
 import NotFound from '../../components/NotFound';
+import { mapSettings } from '../../data/mapSettings';
 
 export type HomeProps = {
   posts: PostsStrapi;
@@ -26,10 +27,7 @@ export type HomeProps = {
 const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
   const router = useRouter();
 
-  const image = settings.data.attributes.avatar.data.attributes.url;
-  const title = settings.data.attributes.title;
-  const description = settings.data.attributes.description;
-  const footer = settings.data.attributes.footer;
+  const settingsData = mapSettings(settings);
 
   return (
     <>
@@ -40,7 +38,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
           content={settings.data.attributes.description}
         />
       </Head>
-      <Header image={image} title={title} description={description} />
+      <Header {...settingsData} />
       {author && <Author post={posts.data[0]} />}
       {category && <Category post={posts.data[0]} category={category} />}
       {posts.data.length <= 0 ? (
@@ -75,7 +73,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
           )}
         </Container>
       )}
-      <Footer footer={footer} />
+      <Footer {...settingsData} />
     </>
   );
 };
