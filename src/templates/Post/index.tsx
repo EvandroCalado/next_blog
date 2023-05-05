@@ -12,29 +12,26 @@ import Tags from '../../components/Tags';
 import GoToTop from '../../components/GoToTop';
 import Excerpt from '../../components/Excerpt';
 
-export type PostProps = {
-  post: PostStrapi;
-  image: string;
+export type SettingsDataProps = {
   title: string;
   description: string;
+  image: string;
   footer: string;
 };
 
-const PostTemplate = ({
-  post,
-  image,
-  title,
-  description,
-  footer,
-}: PostProps) => {
-  console.log();
+export type PostProps = {
+  post: PostStrapi;
+  settings: SettingsDataProps;
+};
+
+const PostTemplate = ({ post, settings }: PostProps) => {
   return (
     <>
       <Head>
         <title>{post.attributes.title}</title>
         <meta name="description" content={post.attributes.excerpt} />
       </Head>
-      <Header image={image} title={title} description={description} />
+      <Header {...settings} />
       <Container>
         <Heading>{post.attributes.title}</Heading>
         <Excerpt excerpt={post.attributes.excerpt} />
@@ -52,7 +49,7 @@ const PostTemplate = ({
         <Comments title={post.attributes.title} slug={post.attributes.slug} />
         <GoToTop />
       </Container>
-      <Footer footer={footer} />
+      <Footer {...settings} />
     </>
   );
 };

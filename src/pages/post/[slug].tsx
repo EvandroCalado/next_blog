@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { getAllPosts } from '../../data/getAllPosts';
 import { PostStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import PostTemplate from '../../templates/Post';
@@ -8,6 +7,7 @@ import Error from 'next/error';
 import { getPosts } from '../../data/getPosts';
 import { markdownToHtml } from '../../utils/markdownToHtml';
 import { getSetting } from '../../data/getSetting';
+import { mapSettings } from '../../data/mapSettings';
 
 export type PostProps = {
   post: PostStrapi;
@@ -17,35 +17,30 @@ export type PostProps = {
 const Post = ({ post, settings }: PostProps) => {
   const router = useRouter();
 
+  const settingsData = mapSettings(settings);
+
   if (router.isFallback) {
     return <div>Página em construção...</div>;
   }
 
   if (!post?.attributes) return <Error statusCode={404} />;
 
-  const image = settings.data.attributes.avatar.data.attributes.url;
-  const title = settings.data.attributes.title;
-  const description = settings.data.attributes.description;
-  const footer = settings.data.attributes.footer;
-
-  return (
-    <PostTemplate
-      post={post}
-      image={image}
-      title={title}
-      description={description}
-      footer={footer}
-    />
-  );
+  return <PostTemplate post={post} settings={settingsData} />;
 };
 
 export default Post;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllPosts();
+  let posts = null;
+
+  try {
+    posts = await getPosts();
+  } catch (error) {
+    console.log(error);
+  }
 
   return {
-    paths: posts.data.map((post) => {
+    paths: posts.data.map((post: PostStrapi) => {
       return {
         params: {
           slug: post.attributes.slug,

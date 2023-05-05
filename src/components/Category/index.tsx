@@ -1,24 +1,27 @@
-import { PostStrapi } from '../../typing/posts';
 import * as Styled from './styles';
 
 export type CategoryProps = {
-  post: PostStrapi;
+  title: string;
+  image: string;
+};
+
+export type CategoriesProps = {
+  categories: CategoryProps[];
   category?: string;
 };
 
-const Category = ({ post, category }: CategoryProps) => {
-  const filteredCategory = post.attributes.categories.data.filter(
-    (post) => post.attributes.name.toLowerCase() === category?.toLowerCase(),
+const Category = ({ categories, category }: CategoriesProps) => {
+  const filteredCategory = categories.filter(
+    (cat) => cat.title.toLowerCase() === category?.toLowerCase(),
   );
-
-  const image = filteredCategory[0]?.attributes.image.data.attributes.url;
-  const alt = filteredCategory[0]?.attributes.image.data.attributes.name;
-  const title = filteredCategory[0]?.attributes.name;
 
   return (
     <Styled.Wrapper>
-      <Styled.Image src={image} alt={alt} />
-      <Styled.Title>{title}</Styled.Title>
+      <Styled.Image
+        src={filteredCategory[0]?.image}
+        alt={filteredCategory[0]?.title}
+      />
+      <Styled.Title>{filteredCategory[0]?.title}</Styled.Title>
     </Styled.Wrapper>
   );
 };

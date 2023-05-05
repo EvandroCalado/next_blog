@@ -1,20 +1,25 @@
 import * as Styled from './styles';
+
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
+
 import Container from '../../components/Container';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
-import { PaginationNext, PostsStrapi } from '../../typing/posts';
-import { SettingsStrapi } from '../../typing/settings';
-import { ChevronRight } from '@styled-icons/material-outlined';
-import Head from 'next/head';
 import Pagination from '../../components/Pagination';
-import Link from 'next/link';
 import Category from '../../components/Category';
 import Author from '../../components/Author';
 import Button from '../../components/Button';
-import { useRouter } from 'next/router';
 import NotFound from '../../components/NotFound';
+
+import { ChevronRight } from '@styled-icons/material-outlined';
+import { PaginationNext, PostsStrapi } from '../../typing/posts';
+import { SettingsStrapi } from '../../typing/settings';
+
 import { mapSettings } from '../../data/mapSettings';
+import { mapPosts } from '../../data/mapPosts';
 
 export type HomeProps = {
   posts: PostsStrapi;
@@ -27,33 +32,27 @@ export type HomeProps = {
 const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
   const router = useRouter();
 
+  const postsData = mapPosts(posts);
   const settingsData = mapSettings(settings);
 
   return (
     <>
       <Head>
         <title>{category ? category : settings.data.attributes.title}</title>
-        <meta
-          name="description"
-          content={settings.data.attributes.description}
-        />
+        <meta name="description" content={settingsData.description} />
       </Head>
       <Header {...settingsData} />
-      {author && <Author post={posts.data[0]} />}
-      {category && <Category post={posts.data[0]} category={category} />}
-      {posts.data.length <= 0 ? (
+      {author && <Author {...postsData[0].author} />}
+      {category && (
+        <Category categories={postsData[0].categories} category={category} />
+      )}
+      {postsData.length <= 0 ? (
         <NotFound>Não encontrado</NotFound>
       ) : (
         <Container>
           <Styled.Container>
-            {posts?.data?.map((post) => (
-              <Card
-                key={post.attributes.slug}
-                cover={post.attributes.cover.data.attributes.url}
-                title={post.attributes.title}
-                date={post.attributes.createdAt}
-                slug={post.attributes.slug}
-              />
+            {postsData?.map((post) => (
+              <Card key={post.id} {...post} />
             ))}
           </Styled.Container>
 

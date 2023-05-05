@@ -6,10 +6,10 @@ export type CardProps = {
   slug: string;
   title: string;
   cover: string;
-  date: string;
+  createdAt: string;
 };
 
-const Card = ({ slug, title, cover, date }: CardProps) => {
+const Card = ({ slug, title, cover, createdAt }: CardProps) => {
   return (
     <Styled.Wrapper>
       <Link href={`/post/${slug}`}>
@@ -18,7 +18,7 @@ const Card = ({ slug, title, cover, date }: CardProps) => {
         </Styled.Cover>
         <Styled.Heading>{title}</Styled.Heading>
         <Styled.Paragraph>
-          <Date date={date} />
+          <Date date={createdAt} />
         </Styled.Paragraph>
       </Link>
     </Styled.Wrapper>
