@@ -5,8 +5,7 @@ import Cover from '../../components/Cover';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Heading from '../../components/Heading';
-import PostDetails from '../../components/Details';
-import { PostStrapi } from '../../typing/posts';
+import Details from '../../components/Details';
 import Head from 'next/head';
 import Tags from '../../components/Tags';
 import GoToTop from '../../components/GoToTop';
@@ -19,34 +18,66 @@ export type SettingsDataProps = {
   footer: string;
 };
 
+export type CategoryDataProps = {
+  title: string;
+  image: string;
+  alt: string;
+};
+
+export type TagDataProps = {
+  name: string;
+};
+
 export type PostProps = {
-  post: PostStrapi;
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  slug: string;
+  createdAt: string;
+  cover: string;
+  author: {
+    title: string;
+    resume: string;
+    image: string;
+    alt: string;
+  };
+  categories: CategoryDataProps[];
+  tags: TagDataProps[];
   settings: SettingsDataProps;
 };
 
-const PostTemplate = ({ post, settings }: PostProps) => {
+const PostTemplate = ({
+  title,
+  excerpt,
+  cover,
+  createdAt,
+  author,
+  categories,
+  content,
+  tags,
+  slug,
+  settings,
+}: PostProps) => {
   return (
     <>
       <Head>
-        <title>{post.attributes.title}</title>
-        <meta name="description" content={post.attributes.excerpt} />
+        <title>{title}</title>
+        <meta name="description" content={excerpt} />
       </Head>
       <Header {...settings} />
       <Container>
-        <Heading>{post.attributes.title}</Heading>
-        <Excerpt excerpt={post.attributes.excerpt} />
-        <Cover
-          url={post.attributes.cover.data.attributes.url}
-          alt={post.attributes.cover.data.attributes.alternativeText}
+        <Heading>{title}</Heading>
+        <Excerpt excerpt={excerpt} />
+        <Cover url={cover} alt={title} />
+        <Details
+          date={createdAt}
+          author={author.title}
+          categories={categories}
         />
-        <PostDetails
-          date={post.attributes.createdAt}
-          author={post.attributes.author.data.attributes.name}
-          categories={post.attributes.categories.data}
-        />
-        <Content content={post.attributes.content} />
-        <Tags tags={post.attributes.tags.data} />
-        <Comments title={post.attributes.title} slug={post.attributes.slug} />
+        <Content content={content} />
+        <Tags tags={tags} />
+        <Comments title={title} slug={slug} />
         <GoToTop />
       </Container>
       <Footer {...settings} />

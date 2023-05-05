@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import * as Styled from './styles';
-import { TagStrapi } from '../../typing/posts';
+
+export type TagProps = {
+  name: string;
+};
 
 export type TagsProps = {
-  tags: TagStrapi[];
+  tags: TagProps[];
 };
 
 const Tags = ({ tags }: TagsProps) => {
@@ -11,8 +14,8 @@ const Tags = ({ tags }: TagsProps) => {
     <Styled.Wrapper>
       Tags:
       {tags.map((tag, index) => (
-        <Link key={`${index}-${tag.attributes.name}`} href={'#'}>
-          {tag.attributes.name}
+        <Link key={`${index}-${tag.name}`} href={'#'}>
+          {tag.name}
         </Link>
       ))}
     </Styled.Wrapper>

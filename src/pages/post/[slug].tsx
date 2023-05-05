@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { PostStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import PostTemplate from '../../templates/Post';
 import { useRouter } from 'next/router';
@@ -8,25 +7,27 @@ import { getPosts } from '../../data/getPosts';
 import { markdownToHtml } from '../../utils/markdownToHtml';
 import { getSetting } from '../../data/getSetting';
 import { mapSettings } from '../../data/mapSettings';
+import { PostStrapi, PostsStrapi } from '../../typing/posts';
 import { mapPosts } from '../../data/mapPosts';
 
 export type PostProps = {
-  post: PostStrapi;
+  posts: PostsStrapi;
   settings: SettingsStrapi;
 };
 
-const Post = ({ post, settings }: PostProps) => {
+const Post = ({ posts, settings }: PostProps) => {
   const router = useRouter();
 
+  const postsData = mapPosts(posts);
   const settingsData = mapSettings(settings);
 
   if (router.isFallback) {
     return <div>Página em construção...</div>;
   }
 
-  if (!post?.attributes) return <Error statusCode={404} />;
+  if (!postsData) return <Error statusCode={404} />;
 
-  return <PostTemplate post={post} settings={settingsData} />;
+  return <PostTemplate {...postsData[0]} settings={settingsData} />;
 };
 
 export default Post;
@@ -40,13 +41,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
     console.log(error);
   }
 
-  const postsData = mapPosts(posts);
-
   return {
-    paths: postsData.map((post) => {
+    paths: posts.data.map((post: PostStrapi) => {
       return {
         params: {
-          slug: post.slug,
+          slug: post.attributes.slug,
         },
       };
     }),
@@ -68,11 +67,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const content = await markdownToHtml(posts.data[0].attributes.content);
   posts.data[0].attributes.content = content;
 
-  const post = posts.data.length > 0 ? posts.data[0] : {};
-
   return {
     props: {
-      post,
+      posts,
       settings,
     },
     revalidate: 60,

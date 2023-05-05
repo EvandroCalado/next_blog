@@ -3,9 +3,7 @@ import Date from '../Date';
 import * as Styled from './styles';
 
 export type CategoryProps = {
-  attributes: {
-    name: string;
-  };
+  title: string;
 };
 
 export type DetailsProps = {
@@ -23,10 +21,10 @@ const Details = ({ date, author, categories }: DetailsProps) => {
       <Link href={`/post/page/1/ /${author}`}>{author}</Link> <span>em</span>
       {categories.map((category, index) => (
         <Link
-          key={`${index}-${category.attributes.name}`}
-          href={`/post/page/1/${category.attributes.name}`}
+          key={`${index}-${category.title}`}
+          href={`/post/page/1/${category.title}`}
         >
-          {category.attributes.name}
+          {category.title}
         </Link>
       ))}
     </Styled.Wrapper>
