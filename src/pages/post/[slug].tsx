@@ -8,6 +8,7 @@ import { getPosts } from '../../data/getPosts';
 import { markdownToHtml } from '../../utils/markdownToHtml';
 import { getSetting } from '../../data/getSetting';
 import { mapSettings } from '../../data/mapSettings';
+import { mapPosts } from '../../data/mapPosts';
 
 export type PostProps = {
   post: PostStrapi;
@@ -39,11 +40,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
     console.log(error);
   }
 
+  const postsData = mapPosts(posts);
+
   return {
-    paths: posts.data.map((post: PostStrapi) => {
+    paths: postsData.map((post) => {
       return {
         params: {
-          slug: post.attributes.slug,
+          slug: post.slug,
         },
       };
     }),
