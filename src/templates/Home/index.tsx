@@ -38,7 +38,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
   return (
     <>
       <Head>
-        <title>{category ? category : settings.data.attributes.title}</title>
+        <title>{category ? category : settingsData.title}</title>
         <meta name="description" content={settingsData.description} />
       </Head>
       <Header {...settingsData} />
@@ -46,7 +46,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
       {category && (
         <Category categories={postsData[0].categories} category={category} />
       )}
-      {postsData.length <= 0 ? (
+      {!postsData ? (
         <NotFound>Não encontrado</NotFound>
       ) : (
         <Container>

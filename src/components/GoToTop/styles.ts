@@ -5,12 +5,19 @@ export const Ancor = styled.a`
   position: fixed;
   right: 2rem;
   bottom: 2rem;
-  background-color: ${theme.colors.white};
-  display: inline-block;
-  border: solid .2rem ${theme.colors.secondary};
-  border-radius: 50%;
+  background-color: ${theme.colors.primary};
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 7px 10px 14px -2px rgba(23,23,23,0.21);
+  -moz-box-shadow: 7px 10px 14px -2px rgba(23,23,23,0.21);
+  box-shadow: 7px 10px 14px -2px rgba(23,23,23,0.21);
+  transition: all 300ms ease-in-out;
   animation: Up 3s ease-in-out infinite;
   cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    filter: brightness(50%);
+  }
     
   svg {
     width: 5rem;
