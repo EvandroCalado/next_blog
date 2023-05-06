@@ -1,9 +1,11 @@
+import Home from '../templates/Home';
 import { GetStaticProps } from 'next';
 import { PostsStrapi } from '../typing/posts';
-import Home from '../templates/Home';
 import { SettingsStrapi } from '../typing/settings';
 import { getPosts } from '../data/getPosts';
 import { getSetting } from '../data/getSetting';
+import { PostsDataProps } from '../data/mapPosts';
+import { SettingsDataProps } from '../data/mapSettings';
 
 export type IndexProps = {
   posts: PostsStrapi;
@@ -16,7 +18,14 @@ const Index = ({ posts, settings }: IndexProps) => {
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async () => {
+export type PostsAndSettingsDataProps = {
+  posts: PostsDataProps;
+  settings: SettingsDataProps;
+};
+
+export const getStaticProps: GetStaticProps<
+  PostsAndSettingsDataProps
+> = async () => {
   let posts = null;
   let settings = null;
 

@@ -11,39 +11,10 @@ import Tags from '../../components/Tags';
 import GoToTop from '../../components/GoToTop';
 import Excerpt from '../../components/Excerpt';
 
-export type SettingsDataProps = {
-  title: string;
-  description: string;
-  image: string;
-  footer: string;
-};
+import { PostsDataProps } from '../../data/mapPosts';
+import { SettingsDataProps } from '../../data/mapSettings';
 
-export type CategoryDataProps = {
-  title: string;
-  image: string;
-  alt: string;
-};
-
-export type TagDataProps = {
-  name: string;
-};
-
-export type PostProps = {
-  id: number;
-  title: string;
-  excerpt: string;
-  content: string;
-  slug: string;
-  createdAt: string;
-  cover: string;
-  author: {
-    title: string;
-    resume: string;
-    image: string;
-    alt: string;
-  };
-  categories: CategoryDataProps[];
-  tags: TagDataProps[];
+export type PostProps = PostsDataProps & {
   settings: SettingsDataProps;
 };
 

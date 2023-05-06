@@ -1,6 +1,13 @@
 import { SettingsStrapi } from '../typing/settings';
 
-export const mapSettings = (settings: SettingsStrapi) => {
+export type SettingsDataProps = {
+  title: string;
+  description: string;
+  image: string;
+  footer: string;
+};
+
+export const mapSettings = (settings: SettingsStrapi): SettingsDataProps => {
   return {
     title: settings?.data.attributes.title,
     description: settings?.data.attributes.description,

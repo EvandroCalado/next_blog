@@ -4,6 +4,7 @@ import { getSetting } from '../../data/getSetting';
 import { PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
 import Home from '../../templates/Home';
+import { PostsAndSettingsDataProps } from '..';
 
 export type SearchProps = {
   posts: PostsStrapi;
@@ -16,7 +17,9 @@ const Search = ({ posts, settings }: SearchProps) => {
 
 export default Search;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps<
+  PostsAndSettingsDataProps
+> = async (ctx) => {
   let posts = null;
   let settings = null;
 

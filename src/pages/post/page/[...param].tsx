@@ -1,5 +1,5 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import Home from '../../../templates/Home';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { PaginationNext, PostsStrapi } from '../../../typing/posts';
 import { SettingsStrapi } from '../../../typing/settings';
 import { useRouter } from 'next/router';

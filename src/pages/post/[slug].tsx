@@ -9,6 +9,7 @@ import { getSetting } from '../../data/getSetting';
 import { mapSettings } from '../../data/mapSettings';
 import { PostStrapi, PostsStrapi } from '../../typing/posts';
 import { mapPosts } from '../../data/mapPosts';
+import { PostsAndSettingsDataProps } from '..';
 
 export type PostProps = {
   posts: PostsStrapi;
@@ -53,7 +54,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps<PostsAndSettingsDataProps> = async (
+  ctx,
+) => {
   let posts = null;
   let settings = null;
 
