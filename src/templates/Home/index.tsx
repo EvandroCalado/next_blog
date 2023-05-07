@@ -20,16 +20,25 @@ import { SettingsStrapi } from '../../typing/settings';
 
 import { mapSettings } from '../../data/mapSettings';
 import { mapPosts } from '../../data/mapPosts';
+import TagTitle from '../../components/TagTitle';
 
 export type HomeProps = {
   posts: PostsStrapi;
   settings: SettingsStrapi;
   category?: string;
   author?: string;
+  tag?: string;
   pagination?: PaginationNext;
 };
 
-const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
+const Home = ({
+  posts,
+  settings,
+  pagination,
+  category,
+  author,
+  tag,
+}: HomeProps) => {
   const router = useRouter();
 
   const postsData = mapPosts(posts);
@@ -46,6 +55,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
       {category && (
         <Category categories={postsData[0].categories} category={category} />
       )}
+      {tag && <TagTitle tag={tag} />}
       {!postsData ? (
         <NotFound>Não encontrado</NotFound>
       ) : (
@@ -60,7 +70,7 @@ const Home = ({ posts, settings, category, author, pagination }: HomeProps) => {
             ''
           ) : !pagination?.nextPage ? (
             <Link
-              href={'/post/page/1'}
+              href={'/posts?page=1'}
               style={{ opacity: '1', display: 'inline-block' }}
             >
               <Button icon={<ChevronRight />} color="primary">

@@ -14,7 +14,7 @@ const Tags = ({ tags }: TagsProps) => {
     <Styled.Wrapper>
       Tags:
       {tags.map((tag, index) => (
-        <Link key={`${index}-${tag.name}`} href={'#'}>
+        <Link key={`${index}-${tag.name}`} href={`/tag/${tag.name}?page=1`}>
           {tag.name}
         </Link>
       ))}

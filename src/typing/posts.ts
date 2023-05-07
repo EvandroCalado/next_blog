@@ -124,4 +124,5 @@ export type PaginationNext = {
   postsPerPage: number;
   category?: string;
   author?: string;
+  tag?: string;
 };

@@ -54,6 +54,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   let settings = null;
 
   const filterQuery = author ? { author } : { category };
+  // const filterQuery = { author } || { category };
 
   try {
     posts = await getPosts(
@@ -62,7 +63,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         start: startFrom,
         limit: postsPerPage,
       },
-      { ...filterQuery },
+      { filterQuery },
     );
     settings = await getSetting();
   } catch (error) {

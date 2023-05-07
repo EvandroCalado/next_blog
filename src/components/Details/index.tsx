@@ -18,11 +18,11 @@ const Details = ({ date, author, categories }: DetailsProps) => {
       <span>Publicado em</span>
       <p>{<Date date={date} />}</p>
       <span>por</span>
-      <Link href={`/post/page/1/ /${author}`}>{author}</Link> <span>em</span>
+      <Link href={`/author/${author}?page=1`}>{author}</Link> <span>em</span>
       {categories.map((category, index) => (
         <Link
           key={`${index}-${category.title}`}
-          href={`/post/page/1/${category.title}`}
+          href={`/category/${category.title}?page=1`}
         >
           {category.title}
         </Link>
