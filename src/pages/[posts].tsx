@@ -1,4 +1,4 @@
-import Home from '../templates/Home';
+import Home from '../templates/Posts';
 import { GetServerSideProps } from 'next';
 import { getPosts } from '../data/getPosts';
 import { getSetting } from '../data/getSetting';

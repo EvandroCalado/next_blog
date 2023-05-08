@@ -1,4 +1,4 @@
-import Home from '../../../templates/Home';
+import Home from '../../../templates/Posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { PaginationNext, PostsStrapi } from '../../../typing/posts';
 import { SettingsStrapi } from '../../../typing/settings';

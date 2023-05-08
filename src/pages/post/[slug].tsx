@@ -1,14 +1,17 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { SettingsStrapi } from '../../typing/settings';
-import PostTemplate from '../../templates/Post';
-import { useRouter } from 'next/router';
 import Error from 'next/error';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+
+import PostTemplate from '../../templates/Post';
+
 import { getPosts } from '../../data/getPosts';
-import { markdownToHtml } from '../../utils/markdownToHtml';
 import { getSetting } from '../../data/getSetting';
-import { mapSettings } from '../../data/mapSettings';
-import { PostStrapi, PostsStrapi } from '../../typing/posts';
 import { mapPosts } from '../../data/mapPosts';
+import { mapSettings } from '../../data/mapSettings';
+import { markdownToHtml } from '../../utils/markdownToHtml';
+
+import { SettingsStrapi } from '../../typing/settings';
+import { PostStrapi, PostsStrapi } from '../../typing/posts';
 import { PostsAndSettingsDataProps } from '..';
 
 export type PostProps = {

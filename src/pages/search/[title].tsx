@@ -3,7 +3,7 @@ import { getPosts } from '../../data/getPosts';
 import { getSetting } from '../../data/getSetting';
 import { PostsStrapi } from '../../typing/posts';
 import { SettingsStrapi } from '../../typing/settings';
-import Home from '../../templates/Home';
+import Home from '../../templates/Posts';
 import { PostsAndSettingsDataProps } from '..';
 
 export type SearchProps = {

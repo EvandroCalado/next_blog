@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 import { ButtonProps } from './';
 
-export const Button = styled.button<Pick<ButtonProps, 'color'>>`
-  ${({ theme, color }) => css`
+export const Button = styled.button<Pick<ButtonProps, 'color' | 'size'>>`
+  ${({ theme, color, size }) => css`
     background-color: ${theme.colors[color]};
     color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.medium};
+    font-size: ${theme.font.sizes[size]};
     border: none;
     padding: ${theme.spacings.xsmall} ${theme.spacings.medium};
     margin: ${theme.spacings.large} 0;
@@ -32,6 +32,7 @@ export const Button = styled.button<Pick<ButtonProps, 'color'>>`
 
     > svg {
       width: 4rem;
+      margin-left: 1rem;
     }
   `}
 `;

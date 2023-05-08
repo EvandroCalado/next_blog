@@ -4,6 +4,7 @@ import * as Styled from './styles';
 export type ButtonProps = {
   children: React.ReactNode;
   color: 'primary' | 'secondary';
+  size: 'small' | 'medium' | 'large';
   icon?: React.ReactNode;
   disasbled?: boolean;
 };
@@ -11,11 +12,12 @@ export type ButtonProps = {
 const Button = ({
   children,
   color = 'primary',
+  size = 'medium',
   icon,
   disasbled = false,
 }: ButtonProps) => {
   return (
-    <Styled.Button disabled={disasbled} color={color}>
+    <Styled.Button disabled={disasbled} color={color} size={size}>
       {children}
       {icon && icon}
     </Styled.Button>

@@ -19,12 +19,15 @@ const Pagination = ({
     (author && `/author/${author}?page=${nextPage}`) ||
     (tag && `/tag/${tag}?page=${nextPage}`) ||
     `/posts?page=${nextPage}`;
+
   const previusLink =
     (category && `/category/${category}?page=${previusPage}`) ||
     (author && `/author/${author}?page=${previusPage}`) ||
     (tag && `/tag/${tag}?page=${previusPage}`) ||
     `/posts?page=${previusPage}`;
+
   const hasNextPage = nextPage * postsPerPage < postsPerPage + numberOfPosts;
+
   const hasPreviusPage = previusPage >= 1;
 
   return (
