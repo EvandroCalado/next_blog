@@ -14,5 +14,16 @@ export const Wrapper = styled.div`
     & a:not(:last-of-type):not(:first-of-type)::after {
       content: ',';
     } 
+
+    @media ${theme.media.lteMedium} {
+      margin-top: 1rem;
+
+      p {
+        display: none;
+      }
+      span:not(:last-of-type) {
+        display: none;
+    }
+    }
   `}
 `;

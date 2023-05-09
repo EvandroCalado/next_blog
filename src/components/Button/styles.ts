@@ -5,6 +5,7 @@ export const Button = styled.button<Pick<ButtonProps, 'color' | 'size'>>`
   ${({ theme, color, size }) => css`
     background-color: ${theme.colors[color]};
     color: ${theme.colors.white};
+    font-weight: 200;
     font-size: ${theme.font.sizes[size]};
     border: none;
     padding: ${theme.spacings.xsmall} ${theme.spacings.medium};

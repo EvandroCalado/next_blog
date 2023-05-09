@@ -31,6 +31,10 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.large};
     color: ${theme.colors.secondary};
+
+    @media ${theme.media.lteMedium} {
+      font-size: ${theme.font.sizes.medium};
+    }
   `}
 `;
 

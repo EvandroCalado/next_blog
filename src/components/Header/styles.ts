@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button } from '../ToggleButton/styles';
+import { Button as ToggleButton } from '../ToggleButton/styles';
+import { ImputContainer } from '../Search/styles';
 
 export const Header = styled.header`
   ${({ theme }) => css`
@@ -20,6 +22,25 @@ ${({ theme }) => css`
     padding: 0 ${theme.spacings.medium};
     display: flex;
     justify-content: space-between;
+
+    @media ${theme.media.lteMedium} {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      ${ImputContainer} {
+        width: 100%;
+      }
+
+      ${ToggleButton} {
+        top: 5rem;
+        right: 0;
+        
+        svg {
+          width: 3rem;
+        }
+      }
+    }
 
     ${Button} {
       position: absolute;

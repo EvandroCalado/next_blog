@@ -19,5 +19,9 @@ export const Image = styled.img`
 export const Title = styled.h2`
 ${({ theme }) => css`
   font-size: ${theme.font.sizes.xlarge};
+
+  @media ${theme.media.lteMedium} {
+    font-size: ${theme.font.sizes.large};
+  }
 `}
 `;

@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
     display: flex;
     margin-top: ${theme.spacings.small};
     margin-bottom: ${theme.spacings.xxlarge};
+
+    @media ${theme.media.lteMedium} {
+      flex-direction: column;
+    }
   `}
 `;
 
