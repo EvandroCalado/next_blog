@@ -1,4 +1,5 @@
 export const theme = {
+  name: 'default',
   colors: {
     primary: '#252422',
     secondary: '#f24b4b',
@@ -6,6 +7,7 @@ export const theme = {
     lightGray: '#dddddd',
     mediumGray: '#999999',
     darkGray: '#333333',
+    background: '#fff',
   },
   font: {
     family: {

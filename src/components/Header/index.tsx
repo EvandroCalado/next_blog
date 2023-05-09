@@ -1,6 +1,7 @@
 import * as Styled from './styles';
 import Search from '../Search';
 import Logo from '../Logo';
+import ToggleButton from '../ToggleButton';
 
 export type HeaderProps = {
   image: string;
@@ -14,6 +15,7 @@ const Header = ({ image, title, description }: HeaderProps) => {
       <Styled.Wrapper>
         <Logo image={image} title={title} description={description} />
         <Search />
+        <ToggleButton />
       </Styled.Wrapper>
     </Styled.Header>
   );
