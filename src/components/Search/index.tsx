@@ -10,7 +10,7 @@ const Search = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    router.push(`/search/${searchValue}`);
+    router.push(`/search/${searchValue}?page=1`);
   };
 
   const handleChange = (value: string) => {

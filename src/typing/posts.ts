@@ -125,4 +125,5 @@ export type PaginationNext = {
   category?: string;
   author?: string;
   tag?: string;
+  title?: string;
 };

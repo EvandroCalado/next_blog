@@ -13,17 +13,20 @@ const Pagination = ({
   category,
   author,
   tag,
+  title,
 }: PaginationProps) => {
   const nextLink =
     (category && `/category/${category}?page=${nextPage}`) ||
     (author && `/author/${author}?page=${nextPage}`) ||
     (tag && `/tag/${tag}?page=${nextPage}`) ||
+    (title && `/search/${title}?page=${nextPage}`) ||
     `/posts?page=${nextPage}`;
 
   const previusLink =
     (category && `/category/${category}?page=${previusPage}`) ||
     (author && `/author/${author}?page=${previusPage}`) ||
     (tag && `/tag/${tag}?page=${previusPage}`) ||
+    (title && `/search/${title}?page=${previusPage}`) ||
     `/posts?page=${previusPage}`;
 
   const hasNextPage = nextPage * postsPerPage < postsPerPage + numberOfPosts;
