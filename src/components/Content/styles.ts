@@ -12,6 +12,7 @@ export const Wrapper = styled.article`
 
     ul,ol {
       margin: ${theme.spacings.medium};
+      color: ${({ theme }) => theme.colors.font};
     }
 
     pre {

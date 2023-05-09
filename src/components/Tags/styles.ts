@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     justify-content: flex-start;
     gap: 1rem;
     margin: ${theme.spacings.xxlarge} 0;
+    color: ${({ theme }) => theme.colors.font};
 
     a:not(:last-of-type)::after {
       content: ', ';

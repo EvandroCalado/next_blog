@@ -16,15 +16,18 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     font-family: ${({ theme }) => theme.font.family.default};
     background-color: ${({ theme }) => theme.colors.background};
+    transition: all 300ms ease-in-out;
   }
   
 
   h1, h2, h3, h4, h5, h6 {
     font-family: ${({ theme }) => theme.font.family.secondary};
+    color: ${({ theme }) => theme.colors.font};
   }
 
   p {
     font-family: ${({ theme }) => theme.font.family.default};
+    color: ${({ theme }) => theme.colors.font};
   }
  
   ul, ol {

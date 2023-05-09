@@ -36,12 +36,13 @@ const BlogThemeProvider = ({ children }: BlogThemeProviderProps) => {
           name: 'inverted',
           colors: {
             primary: '#f2f0d8',
-            secondary: '#f24b4b',
+            secondary: '#ff6961',
+            font: '#999999',
             white: '#252422',
             lightGray: '#dddddd',
             mediumGray: '#999999',
-            darkGray: '#333333',
-            background: '#999999',
+            darkGray: '#dddddd',
+            background: '#121212',
           },
         };
         setBlogTheme(newTheme as DefaultTheme);

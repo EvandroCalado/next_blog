@@ -7,6 +7,7 @@ export const Header = styled.header`
     background-color: ${theme.colors.primary};
     padding: ${theme.spacings.medium} 0;
     margin-bottom: ${theme.spacings.large};
+    transition: all 300ms ease-in-out;
   `}
 `;
 
