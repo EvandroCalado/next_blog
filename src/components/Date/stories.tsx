@@ -7,6 +7,13 @@ export default {
   args: {
     date: '2023-04-25T12:45:35.146Z',
   },
+  argTypes: {
+    createdAt: {
+      control: {
+        type: 'date',
+      },
+    },
+  },
 } as Meta;
 
 export const Template: StoryFn<DateProps> = (args) => (

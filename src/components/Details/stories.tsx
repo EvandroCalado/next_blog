@@ -9,14 +9,10 @@ export default {
     author: 'Evandro Calado',
     categories: [
       {
-        attributes: {
-          name: 'Javascript',
-        },
+        title: 'Javascript',
       },
       {
-        attributes: {
-          name: 'React',
-        },
+        title: 'React',
       },
     ],
   },

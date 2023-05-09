@@ -3,19 +3,13 @@ import { Meta, StoryFn } from '@storybook/react';
 
 const data = [
   {
-    attributes: {
-      name: 'Api',
-    },
+    name: 'Api',
   },
   {
-    attributes: {
-      name: 'Web',
-    },
+    name: 'Web',
   },
   {
-    attributes: {
-      name: 'Frontend',
-    },
+    name: 'Frontend',
   },
 ];
 

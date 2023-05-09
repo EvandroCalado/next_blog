@@ -17,6 +17,12 @@ export const WithIcon: StoryFn<ButtonProps> = (args) => (
   </div>
 );
 
+export const WithSecondaryColor: StoryFn<ButtonProps> = (args) => (
+  <div>
+    <Button {...args} icon={<ChevronRight />} color="secondary" />
+  </div>
+);
+
 export const WithoutIcon: StoryFn<ButtonProps> = (args) => (
   <div>
     <Button {...args} />
