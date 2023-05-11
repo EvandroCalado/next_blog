@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Styled from './styles';
 
 export type ExcerptProps = {
@@ -5,7 +6,9 @@ export type ExcerptProps = {
 };
 
 const Excerpt = ({ excerpt }: ExcerptProps) => {
-  return <Styled.Paragraph>{excerpt}</Styled.Paragraph>;
+  return (
+    <Styled.Paragraph data-testid="excerpt-wrapper">{excerpt}</Styled.Paragraph>
+  );
 };
 
-export default Excerpt;
+export default React.memo(Excerpt);

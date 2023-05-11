@@ -1,11 +1,13 @@
-import { useState } from 'react';
 import * as Styled from './styles';
+import { useState } from 'react';
 import { Search as Searchicon } from '@styled-icons/material-outlined';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
-  const router = useRouter();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const router: any = useRouter();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();

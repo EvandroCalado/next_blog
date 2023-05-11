@@ -11,8 +11,8 @@ export type ButtonProps = {
 
 const Button = ({
   children,
-  color = 'primary',
-  size = 'medium',
+  color,
+  size,
   icon,
   disasbled = false,
 }: ButtonProps) => {

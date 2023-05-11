@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Button } from '../Button/styles';
 import { Wrapper as DetailsWrapper } from '../Details/styles';
+import { Image } from '../Cover/styles';
+import { Paragraph } from '../Excerpt/styles';
 
 export const Title = styled.h2`
   ${({ theme }) => css`
@@ -17,21 +19,24 @@ export const Wrapper = styled.div`
     margin-top: ${theme.spacings.small};
     margin-bottom: ${theme.spacings.xxlarge};
 
+    ${Image} {
+      width: 100%;
+      max-width: 45rem;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      flex: 1;
+      border-radius: .5rem;
+      margin-right: ${theme.spacings.large};
+      margin-bottom: 0;
+    }
+
+    ${Paragraph} {
+      text-align: left;
+    }
+
     @media ${theme.media.lteMedium} {
       flex-direction: column;
     }
-  `}
-`;
-
-export const Image = styled.img`
-  ${({ theme }) => css`
-    width: 100%;
-    max-width: 45rem;
-    object-fit: cover;
-    aspect-ratio: 16/9;
-    flex: 1;
-    border-radius: .5rem;
-    margin-right: ${theme.spacings.large};
   `}
 `;
 

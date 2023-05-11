@@ -5,7 +5,7 @@ export type HeadingProps = {
 };
 
 const Heading = ({ children }: HeadingProps) => {
-  return <Styled.Wrapper>{children}</Styled.Wrapper>;
+  return <Styled.Wrapper data-testid="heading">{children}</Styled.Wrapper>;
 };
 
 export default Heading;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Author /> should match snapshot 1`] = `
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 4.8rem 0;
+}
+
+.c1 {
+  width: 15rem;
+  border: 3px solid #f24b4b;
+  border-radius: 50%;
+}
+
+.c2 {
+  font-size: 4.0rem;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <img
+      alt="Evandro Calado"
+      class="c1"
+      src="https://avatars.githubusercontent.com/u/110628201?v=4"
+    />
+    <div
+      class=""
+    >
+      <h2
+        class="c2"
+      >
+        Evandro Calado
+      </h2>
+      <p
+        class=""
+      >
+        Desenvolvedor Frontend
+      </p>
+    </div>
+  </div>
+</div>
+`;

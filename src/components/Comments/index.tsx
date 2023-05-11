@@ -8,7 +8,7 @@ export type CommentsProps = {
 
 const Comments = ({ title, slug }: CommentsProps) => {
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper data-testid="comments">
       <DiscussionEmbed
         shortname="next-blog-9"
         config={{

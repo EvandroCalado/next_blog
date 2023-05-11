@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cover /> should render 1`] = `
+.c0 {
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin-bottom: 2.4rem;
+}
+
+<div>
+  <img
+    alt="Javascript"
+    class="c0"
+    src="https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80"
+  />
+</div>
+`;

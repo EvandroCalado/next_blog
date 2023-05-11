@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Date /> should render 1`] = `
+.c0 {
+  color: #f24b4b;
+  font-style: italic;
+  margin-right: 1rem;
+}
+
+<div>
+  <span
+    class="c0"
+  >
+    25/04/2023
+  </span>
+</div>
+`;

@@ -30,6 +30,7 @@ const GoToTop = () => {
   return (
     <>
       <Styled.Ancor
+        data-testid="go-to-top-button"
         onClick={handleClick}
         style={{ display: `${show ? 'inline-block' : 'none'}` }}
       >

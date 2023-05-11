@@ -5,7 +5,12 @@ export type FooterProps = {
 };
 
 const Footer = ({ footer }: FooterProps) => {
-  return <Styled.Wrapper dangerouslySetInnerHTML={{ __html: footer }} />;
+  return (
+    <Styled.Wrapper
+      dangerouslySetInnerHTML={{ __html: footer }}
+      data-testid="footer-wrapper"
+    />
+  );
 };
 
 export default Footer;

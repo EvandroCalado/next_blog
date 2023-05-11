@@ -5,13 +5,8 @@ export default {
   title: 'Excerpt',
   component: Excerpt,
   args: {
-    excerpt: (
-      <p>
-        Lorem markdownum urit, prohibete posuere annum suos fecimus, per
-        Hectoris nunc, nec lascivaque lustra. Visus nemo, amores terrigenasque
-        parens hunc facinus.
-      </p>
-    ),
+    excerpt:
+      'Lorem markdownum urit, prohibete posuere annum suos fecimus, per, Lorem markdownum urit, prohibete posuere annum suos fecimus, per',
   },
 } as Meta;
 

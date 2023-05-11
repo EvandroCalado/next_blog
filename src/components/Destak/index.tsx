@@ -4,6 +4,8 @@ import Details, { CategoryProps } from '../Details';
 import { ReadMore } from '@styled-icons/material-outlined';
 import { AuthorDataProps } from '../../data/mapPosts';
 import Link from 'next/link';
+import Cover from '../Cover';
+import Excerpt from '../Excerpt';
 
 export type DestakProps = {
   title: string;
@@ -28,7 +30,7 @@ const Destak = ({
     <>
       <Styled.Title>Em Destaque</Styled.Title>
       <Styled.Wrapper>
-        <Styled.Image src={cover} alt={title} />
+        <Cover url={cover} alt={title} />
         <Styled.Container>
           <Details
             author={author.title}
@@ -36,7 +38,7 @@ const Destak = ({
             date={createdAt}
           />
           <Styled.SubTitle>{title}</Styled.SubTitle>
-          <Styled.Excerpt>{excerpt}</Styled.Excerpt>
+          <Excerpt excerpt={excerpt} />
           <Link href={`/post/${slug}`}>
             <Button color="primary" icon={<ReadMore />} size="medium">
               Leia mais
