@@ -6,8 +6,8 @@ export type TagTitleProps = {
 
 const TagTitle = ({ tag }: TagTitleProps) => {
   return (
-    <Styled.Wrapper>
-      <Styled.Title>{tag}</Styled.Title>
+    <Styled.Wrapper data-testid="tag-title-wrapper">
+      <Styled.Title data-testid="tag-title">{tag}</Styled.Title>
     </Styled.Wrapper>
   );
 };

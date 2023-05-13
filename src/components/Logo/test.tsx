@@ -7,11 +7,8 @@ describe('<Logo />', () => {
     const props = {
       image: 'logo.png',
       title: 'My Logo',
-      description: 'This is my logo',
     };
     renderTheme(<Logo {...props} />);
-    expect(screen.getByText(props.title)).toBeInTheDocument();
-    expect(screen.getByText(props.description)).toBeInTheDocument();
     expect(screen.getByAltText(props.title)).toBeInTheDocument();
   });
 
@@ -29,7 +26,7 @@ describe('<Logo />', () => {
   });
 
   it('test_logo_renders_without_props', () => {
-    renderTheme(<Logo image="" title="" description="" />);
+    renderTheme(<Logo image="" title="" />);
     expect(screen.queryByRole('link', { name: '' })).toBeInTheDocument();
     expect(screen.queryByAltText('')).toBeInTheDocument();
   });

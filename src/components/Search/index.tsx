@@ -24,6 +24,7 @@ const Search = () => {
       <Styled.ImputContainer>
         <Searchicon />
         <Styled.Imput
+          data-testid="input-search"
           type="search"
           placeholder="Pesquisa"
           onChange={(event) => handleChange(event.target.value)}

@@ -45,6 +45,8 @@ const Posts = ({
   const postsData = mapPosts(posts);
   const settingsData = mapSettings(settings);
 
+  console.log(postsData);
+
   return (
     <>
       <Head>
@@ -54,10 +56,10 @@ const Posts = ({
       <Header {...settingsData} />
       {author && <Author {...postsData[0].author} />}
       {category && (
-        <Category categories={postsData[0].categories} category={category} />
+        <Category categories={postsData[0]?.categories} category={category} />
       )}
       {tag && <TagTitle tag={tag} />}
-      {!postsData ? (
+      {!postsData[0] ? (
         <NotFound>Não encontrado</NotFound>
       ) : (
         <Container>

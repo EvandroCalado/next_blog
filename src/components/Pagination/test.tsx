@@ -76,10 +76,88 @@ describe('<Pagination />', () => {
       title: '',
     };
 
-    const hasNextPage =
-      props.nextPage * props.postsPerPage <
-      props.postsPerPage + props.numberOfPosts;
+    renderTheme(<Pagination {...props} />);
+    expect(screen.getByTestId('link-right')).toHaveStyle({
+      cursor: 'not-allowed',
+    });
+    expect(screen.getByTestId('link-left')).toHaveStyle({
+      cursor: 'not-allowed',
+    });
+  });
 
-    console.log(hasNextPage);
+  it('test_pagination_empty_href_props', () => {
+    const props = {
+      nextPage: 2,
+      numberOfPosts: 10,
+      postsPerPage: 5,
+      previusPage: 1,
+      category: '',
+      author: '',
+      tag: '',
+      title: '',
+    };
+
+    const { getByTestId } = renderTheme(<Pagination {...props} />);
+    const linkLeft = getByTestId('link-left');
+    const linkRight = getByTestId('link-right');
+    expect(linkLeft).toHaveAttribute('href', '/posts?page=1');
+    expect(linkRight).toHaveAttribute('href', '/posts?page=2');
+  });
+
+  it('test_pagination_has_author', () => {
+    const props = {
+      nextPage: 2,
+      numberOfPosts: 10,
+      postsPerPage: 5,
+      previusPage: 1,
+      category: '',
+      author: 'evandro',
+      tag: '',
+      title: '',
+    };
+
+    const { getByTestId } = renderTheme(<Pagination {...props} />);
+    const linkLeft = getByTestId('link-left');
+    const linkRight = getByTestId('link-right');
+    expect(linkLeft).toHaveAttribute('href', '/author/evandro?page=1');
+    expect(linkRight).toHaveAttribute('href', '/author/evandro?page=2');
+  });
+
+  it('test_pagination_has_tag', () => {
+    const props = {
+      nextPage: 2,
+      numberOfPosts: 10,
+      postsPerPage: 5,
+      previusPage: 1,
+      category: '',
+      author: '',
+      tag: 'web',
+      title: '',
+    };
+
+    const { getByTestId } = renderTheme(<Pagination {...props} />);
+    const linkLeft = getByTestId('link-left');
+    const linkRight = getByTestId('link-right');
+    expect(linkLeft).toHaveAttribute('href', '/tag/web?page=1');
+    expect(linkRight).toHaveAttribute('href', '/tag/web?page=2');
+  });
+
+  it('test_pagination_has_title', () => {
+    const props = {
+      nextPage: 2,
+      numberOfPosts: 10,
+      postsPerPage: 5,
+      previusPage: 1,
+      category: '',
+      author: '',
+      tag: '',
+      title: 'javascript',
+    };
+
+    const { getByTestId } = renderTheme(<Pagination {...props} />);
+    const linkLeft = getByTestId('link-left');
+    const linkRight = getByTestId('link-right');
+    expect(linkLeft).toHaveAttribute('href', '/search/javascript?page=1');
+    expect(linkRight).toHaveAttribute('href', '/search/javascript?page=2');
   });
 });

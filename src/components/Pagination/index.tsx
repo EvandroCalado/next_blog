@@ -36,22 +36,28 @@ const Pagination = ({
   return (
     <Styled.Wrapper>
       {hasPreviusPage ? (
-        <Link data-testid="link-left" href={previusLink || ''}>
+        <Link data-testid="link-left" href={previusLink}>
           {<ChevronLeft />}
         </Link>
       ) : (
-        <ChevronLeft style={{ opacity: '0.5', cursor: 'not-allowed' }} />
+        <ChevronLeft
+          data-testid="link-left"
+          style={{ opacity: '0.5', cursor: 'not-allowed' }}
+        />
       )}
 
       <p>
         {nextPage - 1} de {Math.ceil(numberOfPosts / postsPerPage)}
       </p>
       {hasNextPage ? (
-        <Link data-testid="link-right" href={nextLink || ''}>
+        <Link data-testid="link-right" href={nextLink}>
           {<ChevronRight />}
         </Link>
       ) : (
-        <ChevronRight style={{ opacity: '0.5', cursor: 'not-allowed' }} />
+        <ChevronRight
+          data-testid="link-right"
+          style={{ opacity: '0.5', cursor: 'not-allowed' }}
+        />
       )}
     </Styled.Wrapper>
   );
