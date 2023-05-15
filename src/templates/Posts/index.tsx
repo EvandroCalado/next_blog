@@ -45,8 +45,6 @@ const Posts = ({
   const postsData = mapPosts(posts);
   const settingsData = mapSettings(settings);
 
-  console.log(postsData);
-
   return (
     <>
       <Head>
@@ -54,7 +52,7 @@ const Posts = ({
         <meta name="description" content={settingsData.description} />
       </Head>
       <Header {...settingsData} />
-      {author && <Author {...postsData[0].author} />}
+      {author && <Author {...postsData[0]?.author} />}
       {category && (
         <Category categories={postsData[0]?.categories} category={category} />
       )}

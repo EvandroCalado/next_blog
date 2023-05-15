@@ -16,9 +16,9 @@ const Header = ({ image, title, description }: HeaderProps) => {
       <Styled.Wrapper>
         <LogoTitle title={title} description={description} />
         <Search />
+        <ToggleButton />
       </Styled.Wrapper>
       <Logo image={image} title={title} data-logo="Home" />
-      <ToggleButton />
     </Styled.Header>
   );
 };

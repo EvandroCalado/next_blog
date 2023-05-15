@@ -1,4 +1,4 @@
-import Showcase from '../templates/Home';
+import Home from '../templates/Home';
 import { GetStaticProps } from 'next';
 import { PostsStrapi } from '../typing/posts';
 import { SettingsStrapi } from '../typing/settings';
@@ -14,7 +14,7 @@ export type IndexProps = {
 };
 
 const Index = ({ posts, post, settings }: IndexProps) => {
-  return <Showcase posts={posts} settings={settings} post={post} />;
+  return <Home posts={posts} settings={settings} post={post} />;
 };
 
 export default Index;

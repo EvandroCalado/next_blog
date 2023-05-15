@@ -69,8 +69,12 @@ query GET_SETTINGS {
           }
         }
         footer
+        social {
+          title
+          link
+        }
       }
     }
   }
- }
+}
 `;

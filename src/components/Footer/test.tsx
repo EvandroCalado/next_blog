@@ -2,24 +2,31 @@ import Footer from '.';
 import { screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/renderTheme';
 
-import mock from './mock';
-
 describe('<Footer />', () => {
-  it('test_render_footer_with_valid_html_content', () => {
-    renderTheme(<Footer {...mock} />);
+  it('test_rendering_with_valid_props', () => {
+    const footer = 'This is the footer';
+    const social = [
+      { title: 'github', link: 'https://github.com' },
+      { title: 'linkedin', link: 'https://linkedin.com' },
+      { title: 'instagram', link: 'https://instagram.com' },
+    ];
 
-    expect(screen.getByRole('link')).toHaveAttribute(
-      'href',
-      'https://github.com/EvandroCalado',
+    renderTheme(<Footer footer={footer} social={social} />);
+
+    expect(screen.getByTestId('footer-wrapper')).toHaveTextContent(
+      'This is the footer',
     );
-    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
-    expect(screen.getByText(/Feito por/i)).toBeInTheDocument();
-  });
-
-  it('test_render_footer_with_empty_html_content', () => {
-    const footerContent = '';
-    renderTheme(<Footer footer={footerContent} />);
-    const footerElement = screen.getByTestId('footer-wrapper');
-    expect(footerElement).toBeEmptyDOMElement();
+    expect(screen.getByTestId('github')).toHaveAttribute(
+      'href',
+      'https://github.com',
+    );
+    expect(screen.getByTestId('linkedin')).toHaveAttribute(
+      'href',
+      'https://linkedin.com',
+    );
+    expect(screen.getByTestId('instagram')).toHaveAttribute(
+      'href',
+      'https://instagram.com',
+    );
   });
 });

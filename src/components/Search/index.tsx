@@ -20,11 +20,11 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid="search-form">
       <Styled.ImputContainer>
         <Searchicon />
         <Styled.Imput
-          data-testid="input-search"
+          data-testid="search-input"
           type="search"
           placeholder="Pesquisa"
           onChange={(event) => handleChange(event.target.value)}

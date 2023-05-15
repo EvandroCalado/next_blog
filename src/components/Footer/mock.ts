@@ -1,4 +1,17 @@
 export default {
-  footer:
-    '<p>Feito por <a href="https://github.com/EvandroCalado" target="_blank"  >Evandro Calado</a></p>',
+  footer: '<p>Feito com ♥  por <span>Evandro Calado<span/></p>',
+  social: [
+    {
+      title: 'Github',
+      link: 'https://github.com/EvandroCalado',
+    },
+    {
+      title: 'Linkedin',
+      link: 'https://github.com/EvandroCalado',
+    },
+    {
+      title: 'Instagram',
+      link: 'https://github.com/EvandroCalado',
+    },
+  ],
 };

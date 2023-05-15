@@ -33,6 +33,11 @@ export type AvatarStrapi = {
   };
 };
 
+export type SocialStrapi = {
+  title: string;
+  link: string;
+};
+
 export type SettingsStrapi = {
   data: {
     id: number;
@@ -44,6 +49,7 @@ export type SettingsStrapi = {
       updatedAt: string;
       publishedAt: string;
       avatar: AvatarStrapi;
+      social: SocialStrapi[];
     };
   };
 };

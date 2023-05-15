@@ -2,6 +2,7 @@
 
 exports[`<Container /> should render 1`] = `
 .c0 {
+  position: relative;
   max-width: 120rem;
   margin: 0 auto;
   padding: 0 2.4rem;
